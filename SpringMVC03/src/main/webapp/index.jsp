@@ -44,14 +44,19 @@
 										
 										<video  id="preview" autoplay mute width="150" height="300"  style="border: 1px solid #ddd;"></video>
 										
+										
 										<canvas id="myCanvas"  style="border: 1px solid #ddd;"></canvas><br>
 										<!--  
 										<input type=button value="get Video" onclick="{getVideo()}">
 										<input type=button value="get Pic" onclick="{takeSnapshot()}"><br>
 										
 										Take snapshot every <input type=number id="myInterval"  value="3000"> milliseconds
-										<input type=button value="Auto" onclick="{takeAuto()}">
+										<input type=button value="Auto" onclick="{takeAuto()}">x
+										
 										-->
+										
+										
+										
 										<script src="resources/js/WebCam2.js"></script>
 										
 										<!--지도 표시  -->

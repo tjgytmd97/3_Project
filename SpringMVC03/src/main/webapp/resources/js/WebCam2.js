@@ -10,9 +10,11 @@ const recordingPlayer = document.querySelector("#recording");
 
 
 let recorder; //녹화기 초기화용 변수
-let recordedChunks = []; //녹화영상 담을 저장공간 배열
+let recordedChunks; //녹화영상 담을 저장공간 배열
 let videoBlob = null; // 비디오 url로 보낼때 쓸 blob
 let recordedVideoURL = null; //url 주소
+
+
 
 
 
@@ -21,64 +23,72 @@ let recordedVideoURL = null; //url 주소
 function videoStart() {
     navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
     navigator.mediaDevices.getUserMedia({  //미디어 디바이스에서 영상 읽어오기
-        video: true, audio: false
+       
+       /*
+        video:{
+            width: 360,
+            height: 240,
+          }
+          */
+          video:true, audio: false
     })
         .then(stream => {
-            previewPlayer.srcObject = stream
+            previewPlayer.srcObject = stream;
             startRecording(previewPlayer.captureStream())//영상재생중 녹화하기위해 사용
+           
 
             previewPlayer.play()
-
+           
         })
 
-
-
-
-
-
 }
-
-function startRecording(stream) {
+    
+function startRecording(stream) {//녹화되는 스트림받아온다
     recordedChunks = [];
-    recorder = new MediaRecorder(stream); //녹화되는 스트림을 넘긴다
-    recorder.ondataavailable = (e) => { recordedChunks.push(e.data) }
+    recorder = new MediaRecorder(stream); //녹화기를 호출하여 스트림을(실시간영상)을 파라미터로 넘기기 
+    recorder.ondataavailable = (event) => { 
+        
+        console.log("data push! ")
+        recordedChunks.push(event.data) }
 
-    recordedChunks.push(stream)
+    //recordedChunks.push(stream)
     recorder.start(); // 녹화기 시작
 
-
 }
 
-function stopRecording() {
-    previewPlayer.srcObject.getTracks()
-        .forEach(track => track.stop());  //녹화중지가 호출되면 실시간 영상을 중단시킨다. 
+function stopRecording()  {
+    previewPlayer.srcObject.getTracks().forEach(track => track.stop());  // 실시간 영상을 중단시킨다. 
 
-    previewPlayer.srcObject.getTracks().forEach(track => track.start)//영상 blob로 저장후 다시 영상정보를 얻기위해 트랙 start
-
-
-    //recorder.stop(); //녹화기 정지
-    recorder = null;
+    //previewPlayer.srcObject.getTracks().forEach(track => track.start)//영상 blob로 저장후 다시 영상정보를 얻기위해 트랙 start
+    
+    recorder.stop(); //녹화기 정지, 위에서 실시간 영상을 중지시킨후, 녹화기도 중지시킨다
+    //recorder = null;
     console.log(recordedChunks) // 저장되는 blob비디오 정보 표시
+   
+    videoBlob = new Blob(recordedChunks, { type: "video/x-matroska;codecs=avc1" });
 
-    console.log(previewPlayer.srcObject.getTracks()) //저장되는 오디오 정보와 비디오 정보 콘솔표시
-
-
-
-    videoBlob = new Blob(recordedChunks, { type: "video/mpeg" });
-    recordedVideoURL = window.URL.createObjectURL(videoBlob)
+    console.log(videoBlob)
+   //recordedVideoURL = window.URL.createObjectURL(videoBlob)
 
     //서버 호출 함수
     sendAvi(videoBlob);
+    
+    //sendAvi(recordedChunks);
     console.log("서버 전송 시작");
 
 }
 
 function playRecording() { //녹화된 영상을 웹에서 재생할때 사용. 지금은 별 쓸모가 없음
-    const recordedBlob = new Blob(recordedChunks, { type: "video/mpeg" }); // 저장할 비디오 확장자 설정, 코덱처리가 들어갈수도 있을듯
+/*
+    //const recordedBlob = new Blob(recordedChunks, { type: "video/mpeg" }); // 저장할 비디오 확장자 설정, 코덱처리가 들어갈수도 있을듯
+    const recordedBlob = new Blob(recordedChunks, { type:"video/webm" }); // 저장할 비디오 확장자 설정, 코덱처리가 들어갈수도 있을듯
     recordingPlayer.src = URL.createObjectURL(recordedBlob);//blob 데이터를 url로 보내게 변경
+    */
     recordingPlayer.play();//녹화된 영상을 재생
+    /*
     downloadButton.href = recordingPlayer.src;
     downloadButton.download = `recording_${new Date()}.webm`;
+    */
     console.log(recordingPlayer.src);
 
 }
@@ -105,10 +115,10 @@ window.onload = async function () { //비동기 위해 async 와 await 사용, �
     while (true) {
         videoStart()
         gpsloc()
-        await sleep(3000)
+        await sleep(5000)
         stopRecording()
         await sleep(10) 
-
+        
     }
 }
 
@@ -117,17 +127,30 @@ window.onload = async function () { //비동기 위해 async 와 await 사용, �
 
 const sendAvi = blob => {  //sendAvi = 서버로 보내는메서드
     if (blob == null) return; //데이터 없으면 반환
+    
+    //현재시간을 이용해 파일이름 만들기
+    var today = new Date();
+    var year = today.getFullYear();
+var month = ('0' + (today.getMonth() + 1)).slice(-2);
+var day = ('0' + today.getDate()).slice(-2);
 
-    //let filename = new Date().toString() + ".avi";
-    let filename = new Date().toString() + ".mpeg";  //파일이름 처리. 확장자 붙이기
+var dateString = year + '_' + month  + '_' + day+'_'; //날짜 포맷으로 변경
+var today = new Date();   
+var hours = ('0' + today.getHours()).slice(-2); 
+var minutes = ('0' + today.getMinutes()).slice(-2);
+var seconds = ('0' + today.getSeconds()).slice(-2); 
+var timeString = hours + '_' + minutes  + '_' + seconds;//시간포맷으로 변경
+var newfilename = dateString+timeString;
+
+    let filename = newfilename + ".avi";
+    //let filename = newfilename + ".mpeg";  //파일이름 처리. 확장자 붙이기
+    //let filename = newfilename + ".webm";
     const file = new File([blob], filename);
-
     let fd = new FormData();
     fd.append("fname", filename);
     fd.append("file", file);
-
     $.ajax({
-        url: "/upload/tempimg/mpeg", //데이터 보낼  url 입력
+        url: "http://localhost:8085/controller/file/upload", //데이터 보낼  url 입력
         type: "POST",
         contentType: false, // 이 옵션과 아래옵션 모두 false로 해놔야 전송 가능  false 로 선언 시 content-type 헤더가 multipart/form-data로 전송되게 함
         processData: false, // false로 선언 시 formData를 string으로 변환하지 않음
@@ -135,8 +158,9 @@ const sendAvi = blob => {  //sendAvi = 서버로 보내는메서드
         success: function (data, textStatus) { //성공시 넘어온 데이터를 받는다.
             if (data != null) { //성공시 받아온 데이터가 있다면
                 console.log("동영상 서버 전송 성공");
-                //setUserResponse(data);  //데이터 처리
-                //send(data);
+                console.log(data)
+                //setUsdaterResponse(data);  //데이터 처리
+                //send(a);
             }
         },
         error: function (errorMessage) { //실패시 호출
@@ -152,7 +176,7 @@ const sendAvi = blob => {  //sendAvi = 서버로 보내는메서드
 
 var latitude = 0;
 var longitude = 0;
-var currentspeed = 0;
+var currntspeed = 0 ;
 
 
 function gpsloc() {
@@ -184,7 +208,7 @@ function gpsloc() {
 sleep(10)    
 .then(() =>   videoStart())
 .then(console.log("videoStart!"))
-.then(() =>   sleep(3000))
+.then(() =>   sleep(5000))
 .then(() =>  stopRecording())
 .then(console.log("stopRecording!"))
 */
