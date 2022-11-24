@@ -29,7 +29,7 @@ public class FileController {
     @RequestMapping(value="/checkupload", method=RequestMethod.GET)
     public String fileupload() {
     	
-        //return "post/test_file.basic";
+        //return "post/test_file.basic"
     	return "";
     }
     
