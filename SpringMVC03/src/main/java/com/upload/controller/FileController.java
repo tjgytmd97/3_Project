@@ -19,30 +19,36 @@ public class FileController {
 	
 
 //properties에 있는 uploadPath값 가져오기
-    @Resource(name="uploadPath")
-    String uploadPath;//upload
+    @Resource(name="uploadPathvideo")
+    String uploadPathvideo;
+    
+    @Resource(name="uploadPathimg")
+    String uploadPathimg;
     
 //이 경로는 GET방식으로만 호출이 가능 (페이지 호출)
-    @RequestMapping(value="/upload", method=RequestMethod.GET)
+    @RequestMapping(value="/checkupload", method=RequestMethod.GET)
     public String fileupload() {
     	
         //return "post/test_file.basic";
-    	return "redilect:/";
+    	return "";
     }
     
 //이 경로는 POST방식으로만 호출이 가능 (파일 등록)
-    @RequestMapping(value="/upload", method=RequestMethod.POST)
-    @ResponseBody //웹캡 js 에 데이터 보내주기 위해서
     
+    //영상 처리 메서드
+    @RequestMapping(value="/checkuploadvideo", method=RequestMethod.POST)
+    @ResponseBody //웹캡 js 에 데이터 보내주기 위해서    
     //public ModelAndView uploadForm(MultipartFile file, ModelAndView mv) {
     public String uploadForm(MultipartFile file, ModelAndView mv) {
+    	
+    	
         String fileName = file.getOriginalFilename();
-        File target = new File(uploadPath, fileName);
-        System.out.println("파일업로드 클래스 진입, 파일이름 : "+fileName+" ,파일 타겟 : "+target);
+        File target = new File(uploadPathvideo, fileName);
+        System.out.println("파일업로드 클래스 진입, 파일이름 : "+fileName+" ,파일 경로 : "+target);
         
         //경로 생성
-        if ( ! new File(uploadPath).exists()) {
-            new File(uploadPath).mkdirs();
+        if ( ! new File(uploadPathvideo).exists()) {
+            new File(uploadPathvideo).mkdirs();
             System.out.println("파일 경로 생성");
         }
        
