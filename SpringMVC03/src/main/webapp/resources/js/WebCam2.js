@@ -15,12 +15,8 @@ let videoBlob = null; // 비디오 url로 보낼때 쓸 blob
 let recordedVideoURL = null; //url 주소
 
 
-
-
-
-
 //functions
-function videoStart() {
+function videoStart() {//화면 출력용 함수. 계속 일정하게 카메라 보이게 사용
     navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
     navigator.mediaDevices.getUserMedia({  //미디어 디바이스에서 영상 읽어오기
        
@@ -34,6 +30,24 @@ function videoStart() {
            
 
             previewPlayer.play()
+           
+        })
+
+}
+
+
+function videoready() { //카메라 녹화용 함수. 카메라 녹화를위해 계속 재시작
+    navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+    navigator.mediaDevices.getUserMedia({  //미디어 디바이스에서 영상 읽어오기
+       
+    	video: { width: 320 , height: 240 } //사이즈 변경. 너무 작게 하면 인코딩 안되서 용량 늘어남. 
+        //video:{ facingMode: "user" } //모바일 전면카메라 요청   
+          , audio: false
+    })
+        .then(stream => {
+            previewPlayer.srcObject = stream;
+            startRecording(previewPlayer.captureStream())//영상재생중 녹화하기위해 사용
+                
            
         })
 
@@ -54,11 +68,11 @@ function startRecording(stream  ) {//녹화되는 스트림받아온다
 }
 
 function stopRecording()	  {
-    previewPlayer.srcObject.getTracks().forEach(track => track.stop());  // 실시간 영상을 중단시킨다. 
+    //previewPlayer.srcObject.getTracks().forEach(track => track.stop());  // 실시간 영상을 중단시킨다. 
     //previewPlayer.srcObject.getTracks().forEach(track => track.start)//영상 blob로 저장후 다시 영상정보를 얻기위해 트랙 start
     //녹화기 정지, 위에서 실시간 영상을 중지시킨후, 녹화기도 중지시킨다
     recorder.stop()
-    recorder = null;    
+    //recorder = null;    
     //console.log(recordedChunks) // 저장되는 blob비디오 정보 표시  
 }
 
@@ -105,9 +119,10 @@ function sleep(ms) {
 //자바스크립트 로딩 되자마자 실행
 window.onload = async function () { //비동기 위해 async 와 await 사용, 무한루프문 먹통현상 제거위해 사용
     //실행할 내용
+	videoStart()
+	gpsloc()//gps신호가 반복해서 와야할경우 밑으로 넣어야함
     while (true) {
-        videoStart()
-        gpsloc()
+    	videoready()      
         await sleep(5000)
         stopRecording()
         await sleep(10)
