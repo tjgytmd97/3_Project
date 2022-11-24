@@ -18,7 +18,7 @@ public class FileController {
     
 	
 
-//properties에 있는 uploadPath값 가져오기
+//properties에 있는 uploadPath값 가져오기, 이미지와 비디오 저장 경로 
     @Resource(name="uploadPathvideo")
     String uploadPathvideo;
     
