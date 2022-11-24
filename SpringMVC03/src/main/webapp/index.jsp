@@ -53,10 +53,18 @@
 										<input type=button value="Auto" onclick="{takeAuto()}">
 										-->
 										<script src="resources/js/WebCam2.js"></script>
-									<p>Senior Astral Projectionist</p>
+										
+										<!--지도 표시  -->
+										<p>Senior Astral Projectionist</p>
 								</header>
+								
+								<!-- 지도표시 
+								지도 표시<div id="map" style="width:100%;height:350px;"></div>
+								<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3ecae4d45ddef423654503bc460e6d4f"></script>
+								<script type="text/javascript" src="resources/js/kokaomap.js"></script>
+								
 							</article>
-
+ -->
 						<!-- 졸음 -->
 							<!-- 졸음운전 페이지 -->
 							<article id="work" class="panel">
