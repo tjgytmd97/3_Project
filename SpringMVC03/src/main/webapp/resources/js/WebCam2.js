@@ -147,7 +147,8 @@ var hours = ('0' + today.getHours()).slice(-2);
 var minutes = ('0' + today.getMinutes()).slice(-2);
 var seconds = ('0' + today.getSeconds()).slice(-2); 
 var timeString = hours + '_' + minutes  + '_' + seconds;//시간포맷으로 변경
-var newfilename = dateString+timeString;
+var title = 'vid_';
+var newfilename = title+dateString+timeString;
 
     //let filename = newfilename + ".avi";
     let filename = newfilename + ".mp4";  //파일이름 처리. 확장자 붙이기

@@ -49,12 +49,10 @@
   </bean>
   
   <!--  파일업로드 디렉토리 설정 -->
-  <bean id="uploadPathvideo" class="java.lang.String">
-    <constructor-arg value="checkupload\video"/>
+  <bean id="uploadPath" class="java.lang.String">
+    <constructor-arg value="checkupload"/>
   </bean>
   
-   <bean id="uploadPathimg" class="java.lang.String">
-    <constructor-arg value="checkupload\img"/>
-  </bean>
+   
 	 
 </beans>

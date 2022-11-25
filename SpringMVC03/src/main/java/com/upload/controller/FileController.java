@@ -1,9 +1,13 @@
 package com.upload.controller;
 
 import java.io.File;
+import java.nio.file.Files;
+import java.util.Arrays;
+import java.util.Comparator;
 
 import javax.annotation.Resource;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,12 +22,10 @@ public class FileController {
     
 	
 
-//properties에 있는 uploadPath값 가져오기, 이미지와 비디오 저장 경로 
-    @Resource(name="uploadPathvideo")
-    String uploadPathvideo;
-    
-    @Resource(name="uploadPathimg")
-    String uploadPathimg;
+//properties에 있는 uploadPath값 가져오기, 이미지와 비디오 저장 경로, root_context.xml 
+    @Resource(name="uploadPath")
+    String uploadPath;
+ 
     
 //이 경로는 GET방식으로만 호출이 가능 (페이지 호출)
     @RequestMapping(value="/checkupload", method=RequestMethod.GET)
@@ -41,6 +43,8 @@ public class FileController {
     //public ModelAndView uploadForm(MultipartFile file, ModelAndView mv) {
     public String uploadForm(MultipartFile file, ModelAndView mv) {
     	
+    	String vidpath = "\\video"; //업로드 경로에 비디오 폴더 붙여서 넣기
+    	String uploadPathvideo = uploadPath+vidpath;
     	
         String fileName = file.getOriginalFilename();
         File target = new File(uploadPathvideo, fileName);
@@ -64,8 +68,43 @@ public class FileController {
            
         }
        
+        deltempvidFile(uploadPathvideo); //파일 삭제
+        
+        
         //View 위치 설정
         mv.setViewName("post/test_upload.basic");
         return "업로드 클래스 진입후 포스트 방식 입력완료";
+        
+    
+        
+        
     }
+    
+    
+    
+    public void deltempvidFile(String uploadPath){ //업로드 된 비디오 개수 조절
+    	System.out.println("비디오 파일 삭제 메서드 진입");
+    	
+    	File dir = new File(uploadPath); //받아온 경로 지정
+    	File fileslist[] = dir.listFiles(); // 파일 리스트 배열로 생성, 경로 포함
+    	//String fileslist[] = dir.list();//파일 이름만 배열로 반환
+    	
+    	
+    	Arrays.sort(fileslist, Comparator.reverseOrder()); //내림차순으로 배열 정렬
+    	
+    	if(fileslist.length>15){ //파일 최대숫자 지정
+    		
+    		
+    		for (int i = fileslist.length-1; i < fileslist.length; i++) {//파일 지우기. 오래된 파일 하나씩 지우기
+    			
+    			System.out.print( "삭제될 파일 : "+fileslist[i]);
+    			boolean fileDeleted = fileslist[i].delete();
+    			
+    		System.out.println(" 파일 삭제 여부 : " +fileDeleted);
+    		}
+    	}
+
+    	
+    }
+    
 }
