@@ -39,6 +39,7 @@
 		#main > .panel {
 			background: #ffffff;
 			margin-bottom: 2em;
+			width: 60em;
 		}
 
 			#main > .panel:last-child {

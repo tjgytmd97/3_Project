@@ -1306,7 +1306,7 @@ input, select, textarea {
 	}
 
 	body {
-		background-color: #686868;
+		background-color: #decba4 !important;
 		background-repeat: repeat, no-repeat;
 		background-size: auto, 100% 100%;
 		background-attachment: fixed;
@@ -1463,6 +1463,9 @@ input, select, textarea {
 		
 		#emergency tbody tr{
 			border: 1px solid #444444;
+			border-left: none;
+       		border-right: none;
+       		border-top: none;
 		 }
 /* Form */
 
@@ -1916,7 +1919,7 @@ input, select, textarea {
 /* Wrapper */
 
 	#wrapper {
-		width: 45em;
+		width: 45em !important;
 		margin: 0 auto;
 		min-height: 100vh;
 		max-width: 100%;
