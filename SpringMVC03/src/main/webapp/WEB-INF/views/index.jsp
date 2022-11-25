@@ -21,6 +21,8 @@
 	rel="stylesheet"
 	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
 	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 </head>
 <body class="is-preload">
 
@@ -28,19 +30,22 @@
 	<div id="wrapper">
 
 		<!-- Nav -->
-		<nav id="nav">
-			<img src="resources/css/images/3차로고.png" width="10em" height="10em">
-			<a href="#" class="icon solid fa-home"><span>Home</span></a> <a
-				href="#work" class="icon solid fa-folder"><span>졸음 설정</span></a> <a
-				href="#contact" class="icon solid fa-envelope"><span>도난
-					설정</span></a> <a href="#Record" class="icon solid fa-envelope"><span>도난
-					기록</span></a> <a href="#settings" class="icon brands fa-twitter"><span>개인
-					설정</span></a>
-			<button type="button" class="btn btn-dark" data-bs-toggle="modal"
-				data-bs-target="#exampleModal">로그인</button>
-			<button type="button" class="btn btn-dark" data-bs-toggle="modal"
-				data-bs-target="#exampleModal2">회원가입</button>
-		</nav>
+		<div class="position-relative">
+			<nav id="nav">
+				<a href="#" class="icon solid fa-home"><span>Home</span></a> <a
+					href="#work" class="icon solid fa-folder"><span>졸음 설정</span></a> <a
+					href="#contact" class="icon solid fa-envelope"><span>도난
+						설정</span></a> <a href="#Record" class="icon solid fa-envelope"><span>도난
+						기록</span></a> <a href="#settings" class="icon brands fa-twitter"><span>개인
+						설정</span></a>
+				<button type="button"
+					class="btn btn-dark position-absolute top-0 end-0"
+					" data-bs-toggle="modal" data-bs-target="#exampleModal">로그인</button>
+				<button type="button"
+					class="btn btn-dark position-absolute bottom-0 end-0"
+					data-bs-toggle="modal" data-bs-target="#exampleModal2">회원가입</button>
+			</nav>
+		</div>
 
 		<!-- Modal -->
 		<!-- 로그인 -->
@@ -57,11 +62,11 @@
 						<form action="">
 							<input type="text" placeholder="아이디" class="in"> <input
 								type="password" placeholder="비밀번호" class="in">
-						</form>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-dark">로그인</button>
 					</div>
+					</form>
 				</div>
 			</div>
 		</div>
@@ -96,20 +101,20 @@
 								<input name="name" type="password" class="name" placeholder="이름">
 							</div>
 							<div class="textForm">
-								<input name="email" type="text" class="email" placeholder="이메일">
+								<input name="carNo" type="text" class="carNo" placeholder="차량번호">
 							</div>
 							<div class="textForm">
-								<input name="nickname" type="text" class="nickname"
-									placeholder="닉네임">
+								<input name="address" type="text" class="address"
+									placeholder="주소">
 							</div>
 							<div class="textForm">
 								<input name="cellphoneNo" type="number" class="cellphoneNo"
 									placeholder="전화번호">
 							</div>
-						</form>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-dark">회원가입</button>
+						</form>
 					</div>
 				</div>
 			</div>
@@ -119,16 +124,20 @@
 
 			<!-- Me -->
 			<article id="home" class="panel intro">
-			<img src="resources/css/images/3차로고.png" width="15em" height="15em">
 				<header>
+
+
 					<!--<video  id="myVideo"  style="border: 1px solid #ddd;"></video>
 										-->
+					<img class="position-absolute top-0 start-0"
+						src="resources/css/images/3차로고.png" width="50em" height="50em">
+					<video
+						class="position-absolute top-0 start-50 translate-middle-x h-100 d-inline-block"
+						id="preview" autoplay mute 
+						style="border: 1px solid #ddd width="350" height="200";"></video>
 
-					<video id="preview" autoplay mute width="350" height="200"
-						style="border: 1px solid #ddd;"></video>
-
-					<canvas id="myCanvas" style="border: 1px solid #ddd;"></canvas>
-					<br>
+					<!-- 					<canvas class="position-absolute top-0 end-0" id="myCanvas" style="border: 1px solid #ddd;"></canvas>
+ -->
 					<!--  
 										<input type=button value="get Video" onclick="{getVideo()}">
 										<input type=button value="get Pic" onclick="{takeSnapshot()}"><br>
@@ -136,15 +145,15 @@
 										Take snapshot every <input type=number id="myInterval"  value="3000"> milliseconds
 										<input type=button value="Auto" onclick="{takeAuto()}">
 										-->
-					<script src="resources/js/WebCam2.js"></script>
-					<p>Senior Astral Projectionist</p>
 				</header>
 			</article>
 
 			<!-- 졸음 -->
 			<!-- 졸음운전 페이지 -->
 			<article id="work" class="panel">
-			<div><img src="resources/css/images/3차로고.png" width="50em" height="50em"></div>
+				<div>
+					<img src="resources/css/images/3차로고.png" width="50em" height="50em">
+				</div>
 				<header>
 					<h2>졸음운전 페이지</h2>
 				</header>
@@ -326,18 +335,21 @@
 									<td style="width: 250px;">
 										<table id="emergency">
 											<tbody>
-                                      <tr>
-                                        <th>1</th>
-                                        <th><input type="putt" name="phone-num" placeholder="전화번호 입력"></th>
-                                      </tr>
-                                      <tr>
-                                        <th>2</th>
-                                        <th><input type="putt" name="phone-num" placeholder="전화번호 입력"></th>
-                                      </tr>
-                                      <tr>
-                                        <th>3</th>
-                                        <th><input type="putt" name="phone-num" placeholder="전화번호 입력"></th>
-                                      </tr>
+												<tr>
+													<th>1</th>
+													<th><input type="putt" name="phone-num"
+														placeholder="전화번호 입력"></th>
+												</tr>
+												<tr>
+													<th>2</th>
+													<th><input type="putt" name="phone-num"
+														placeholder="전화번호 입력"></th>
+												</tr>
+												<tr>
+													<th>3</th>
+													<th><input type="putt" name="phone-num"
+														placeholder="전화번호 입력"></th>
+												</tr>
 											</tbody>
 										</table>
 									</td>
@@ -349,7 +361,8 @@
 							</table>
 						</div>
 						<div style="display: flex; justify-content: center;">
-							<button type="button" onclick="location.href='#Record'">기록목록 보기</button>
+							<button type="button" onclick="location.href='#Record'">기록목록
+								보기</button>
 						</div>
 					</div>
 
@@ -375,6 +388,7 @@
 	<script src="resources/js/breakpoints.min.js"></script>
 	<script src="resources/js/util.js"></script>
 	<script src="resources/js/main.js"></script>
+	<script src="resources/js/WebCam2.js"></script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
 		integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
@@ -383,6 +397,7 @@
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
 		integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
 		crossorigin="anonymous"></script>
+
 
 </body>
 </html>
