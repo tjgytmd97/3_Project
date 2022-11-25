@@ -129,6 +129,7 @@ window.onload = async function () { //비동기 위해 async 와 await 사용, �
         await sleep(10)
         playRecording()
         await sleep(10)
+    
     }
 }
 
@@ -167,7 +168,7 @@ var newfilename = title+dateString+timeString;
         success: function (data, textStatus) { //성공시 넘어온 데이터를 받는다.
             if (data != null) { //성공시 받아온 데이터가 있다면
                 console.log("동영상 서버 전송 성공");
-                console.log(data)
+                //console.log(data) //서버에서 받아온 응답 데이터 출력
                 //setUsdaterResponse(data);  //데이터 처리
                 //send(a);
             }
@@ -183,9 +184,9 @@ var newfilename = title+dateString+timeString;
 }
 
 
-var latitude = 0;
-var longitude = 0;
-var currntspeed = 0 ;
+let latitude = 0;
+let longitude = 0;
+let currntspeed = 0 ;
 
 
 function gpsloc() {
@@ -206,11 +207,79 @@ function gpsloc() {
                         $('#latitude').html(pos.coords.latitude);     // 위도
                         $('#longitude').html(pos.coords.longitude); // 경도
                         */
+            let tempgps =[laltitue,longitude,currentspeed]//배열로 변경
+            
+            
+            for(let i=0;i<tempgps.length;i++){//gps값 서버 전송 전에 null값 0으로 치환
+            	if(tempgps[i]==null){
+            		tempgps[i]=0;
+            	}
+            
+            }
+            
+                 
+          
+            $.ajax({
+                url: "http://localhost:8085/controller/gps/insert", //데이터 보낼  url 입력
+                type: "POST",
+                traditional : true,
+                 data: {"tempgps":tempgps}, //전송할 데이터가 담긴 변수 변수
+                success: function (data, textStatus) { //성공시 넘어온 데이터를 받는다.
+                    if (data != null) { //성공시 받아온 데이터가 있다면
+                        console.log("gps 서버 전송 성공");
+                        //setUsdaterResponse(data);  //데이터 처리
+                        //send(a);
+                    }
+                },
+                error: function (errorMessage) { //실패시 호출
+                    // setUserResponse("");
+                    console.log("gps 서버 전송 실패" + errorMessage);
+                },
+            }).done(function (data) { // HTTP 요청이 성공하면 요청한 데이터가 done() 메소드로 전달됨.
+               });
 
         });
     } else {
         console.log("이 브라우저에서는 Geolocation이 지원되지 않습니다.")
     }
+}
+
+
+
+function sendgps(latitude,longitude,currntspeed) {  //sendAvi = 서버로 보내는메서드
+    //if (blob == null) return; //데이터 없으면 반환
+    //현재시간을 이용해 파일이름 만들기
+   
+	
+	//let filename = newfilename + ".avi";
+    let tempgps =[latitude,longitude,currntspeed]
+    
+    for(let i=0;i<tempgps.lenth;i++){
+    	if(gps[i]=null){
+    		tempgps[i]=0;
+    	}
+    	console.log(tempgps[i])
+    }
+    
+  
+    $.ajax({
+        url: "http://localhost:8085/controller/gps/insert", //데이터 보낼  url 입력
+        type: "POST",
+        traditional : true,
+         data: tempgps, //전송할 데이터가 담긴 변수 변수
+        success: function (data, textStatus) { //성공시 넘어온 데이터를 받는다.
+            if (data != null) { //성공시 받아온 데이터가 있다면
+                console.log("gps 서버 전송 성공");
+                //setUsdaterResponse(data);  //데이터 처리
+                //send(a);
+            }
+        },
+        error: function (errorMessage) { //실패시 호출
+            // setUserResponse("");
+            console.log("gps 서버 전송 실패" + errorMessage);
+        },
+    }).done(function (data) { // HTTP 요청이 성공하면 요청한 데이터가 done() 메소드로 전달됨.
+       });
 }
 
 /*
