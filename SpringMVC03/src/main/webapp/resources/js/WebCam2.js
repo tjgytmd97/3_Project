@@ -245,7 +245,7 @@ function gpsloc() {
 }
 
 
-
+/*
 function sendgps(latitude,longitude,currntspeed) {  //sendAvi = 서버로 보내는메서드
     //if (blob == null) return; //데이터 없으면 반환
     //현재시간을 이용해 파일이름 만들기
@@ -281,7 +281,7 @@ function sendgps(latitude,longitude,currntspeed) {  //sendAvi = 서버로 보내
     }).done(function (data) { // HTTP 요청이 성공하면 요청한 데이터가 done() 메소드로 전달됨.
        });
 }
-
+*/
 /*
 sleep(10)    
 .then(() =>   videoStart())
