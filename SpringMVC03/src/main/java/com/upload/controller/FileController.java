@@ -75,13 +75,9 @@ public class FileController {
         mv.setViewName("post/test_upload.basic");
         return "upload js script video upload success ";
         
-    
-        
-        
     }
     
-    
-    
+        
     public void deltempvidFile(String uploadPath){ //업로드 된 비디오 개수 조절
     	System.out.println("비디오 파일 삭제 메서드 진입");
     	

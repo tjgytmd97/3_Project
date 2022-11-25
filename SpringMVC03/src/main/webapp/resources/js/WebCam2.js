@@ -3,18 +3,13 @@ const recordButton = document.querySelector(".record-button");
 const stopButton = document.querySelector(".stop-button");
 const playButton = document.querySelector(".play-button");
 const downloadButton = document.querySelector(".download-button");
-
 const previewPlayer = document.querySelector("#preview");
 //const previewPlayer = document.getElementById('myVideo');
 const recordingPlayer = document.querySelector("#recording");
-
-
 let recorder; //녹화기 초기화용 변수
 let recordedChunks; //녹화영상 담을 저장공간 배열
 let videoBlob = null; // 비디오 url로 보낼때 쓸 blob
 let recordedVideoURL = null; //url 주소
-
-
 //functions
 function videoStart() {//화면 출력용 함수. 계속 일정하게 카메라 보이게 사용
     navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
@@ -26,15 +21,11 @@ function videoStart() {//화면 출력용 함수. 계속 일정하게 카메라 
     })
         .then(stream => {
             previewPlayer.srcObject = stream;
-            startRecording(previewPlayer.captureStream())//영상재생중 녹화하기위해 사용
-           
+            startRecording(previewPlayer.captureStream())//영상재생중 녹화하기위해 사용  
 
-            previewPlayer.play()
-           
+            previewPlayer.play()           
         })
-
 }
-
 
 function videoready() { //카메라 녹화용 함수. 카메라 녹화를위해 계속 재시작
     navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
@@ -46,11 +37,8 @@ function videoready() { //카메라 녹화용 함수. 카메라 녹화를위해 
     })
         .then(stream => {
             previewPlayer.srcObject = stream;
-            startRecording(previewPlayer.captureStream())//영상재생중 녹화하기위해 사용
-                
-           
+            startRecording(previewPlayer.captureStream())//영상재생중 녹화하기위해 사용   
         })
-
 }
     
 function startRecording(stream  ) {//녹화되는 스트림받아온다
@@ -58,15 +46,11 @@ function startRecording(stream  ) {//녹화되는 스트림받아온다
     recorder = new MediaRecorder(stream); //녹화기를 호출하여 스트림을(실시간영상)을 파라미터로 넘기기 
     //recorder = new MediaRecorder(stream,{mimeType: 'video/webm; codecs=vp9,opus'});
     recorder.ondataavailable = (event) => { 
-        
         console.log("data recodedchunks push! ")
         recordedChunks.push(event.data) }
-
     //recordedChunks.push(stream)
     recorder.start(); // 녹화기 시작, 위의 녹화기가 시작됨.
-
 }
-
 function stopRecording()	  {
     //previewPlayer.srcObject.getTracks().forEach(track => track.stop());  // 실시간 영상을 중단시킨다. 
     //previewPlayer.srcObject.getTracks().forEach(track => track.start)//영상 blob로 저장후 다시 영상정보를 얻기위해 트랙 start
@@ -75,17 +59,13 @@ function stopRecording()	  {
     //recorder = null;    
     //console.log(recordedChunks) // 저장되는 blob비디오 정보 표시  
 }
-
-function playRecording() { //기존의 녹화된영상을 웹에서 재생하는 기능 대신 영상을 인코딩에서 jsp로 보내는 역활을 함
-	
+function playRecording() { //기존의 녹화된영상을 웹에서 재생하는 기능 대신 영상을 인코딩에서 jsp로 보내는 역활을 함	
 	  videoBlob = new Blob(recordedChunks, { type: "mp4; codecs=h.264" });
 	    console.log(videoBlob)
 	   recordedVideoURL = window.URL.createObjectURL(videoBlob)
 	    //서버 호출 함수
 	   	sendAvi(videoBlob);	   
-	   
 	    console.log("서버 전송 시작");
-
 /*
     //const recordedBlob = new Blob(recordedChunks, { type: "video/mpeg" }); // 저장할 비디오 확장자 설정, 코덱처리가 들어갈수도 있을듯
     const recordedBlob = new Blob(recordedChunks, { type:"video/webm" }); // 저장할 비디오 확장자 설정, 코덱처리가 들어갈수도 있을듯
@@ -183,11 +163,9 @@ var newfilename = title+dateString+timeString;
     });
 }
 
-
 let latitude = 0;
 let longitude = 0;
 let currntspeed = 0 ;
-
 
 function gpsloc() {
     // Geolocation API에 액세스할 수 있는지를 확인
