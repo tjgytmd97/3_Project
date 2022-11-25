@@ -208,6 +208,7 @@
 						<div style="display: flex; justify-content: center;">
 							<button>수정완료</button>
 						</div>
+						</section>
 				</form>
 			</article>
 
@@ -218,67 +219,69 @@
 				</header>
 				<p style="margin-bottom: 5em;">이곳은 도난방지 설정 페이지입니다. 화면 우측에 도난 상황
 					경고 메시지 뜬 후 도난 경보가 울린다. 그리고 경보음을 정하고 회원 및 회원의 비상 연락망으로 문자 알림이 간다.</p>
-				<form action="#" method="post">
-					<section>
-						<div class="row">
-							<table>
-								<tr>
-									<td><div class="sleep-table">알림음</div></td>
-									<td><select name="alarm-sound" id="alarm-sound"
-										style="background-color: rgba(255, 255, 255, 0.5);">
-											<option value="sound0">--삐이익--</option>
-											<option value="sound1">sound1</option>
-											<option value="sound2">sound2</option>
-											<option value="sound3">sound3</option>
-											<option value="sound4">sound4</option>
-
-									</select></td>
-								</tr>
-							</table>
-
-
-							<table>
-								<tr>
-									<td><div class="sleep-table" style="text-align: center;">연락처
-										</div></td>
-								<tr>
-									<th rowspan="3">1</th>
-									<th><input type="text" placeholder="010-0000-0000"></th>
-									<th><input type="checkbox"></th>
-									<th><input type="putt" name="phone-num"></th>
-
-								</tr>
-								<tr>
-									<th>2</th>
-									<th><input type="text" placeholder="010-1111-1111"></th>
-									<th><input type="checkbox"></th>
-									<th><input type="putt" name="phone-num"></th>
-								</tr>
-								<tr>
-									<th>3</th>
-									<th><input type="text" placeholder="010-2222-2222"></th>
-									<th><input type="checkbox"></th>
-									<th><input type="putt" name="phone-num"></th>
-								</tr>
-
-
-
-
-							</table>
-
-							<table>
-								<tr>
-									<td><div style="text-align: center;">🗑️</div></td>
-								</tr>
-
-
-							</table>
-						</div>
-						<div style="display: flex; justify-content: center;">
-							<button>기록목록보기</button>
-						</div>
-					</section>
-				</form>
+				 <form action="#" method="post">
+               <section>
+                  
+                  <table>
+                     <tr>
+                        <td>
+                           <div class="sleep-table" style="background:pink;">알림음</div>
+                        </td>
+                     <td><select name="alarm-sound" id="alarm-sound" style="background-color:rgba(255, 255, 255, 0.5);">
+                        <option value="sound0">--삐이익--</option>
+                        <option value="sound1">sound1</option>
+                        <option value="sound2">sound2</option>
+                        <option value="sound3">sound3</option>
+                        <option value="sound4">sound4</option>
+                     
+                     </select>
+                     </td>
+                     </tr>
+                  </table>
+                  <table border="1" style="text-align:center; margin-right: auto; margin-left: auto; width:20%;">
+                  <thead>
+                     <tr>
+                        <td style="background-color:pink;">연락처</td>
+                        <td></td>
+                        
+                        </tr>
+                  </thead>
+                  <tr>
+                     <td>1</td>
+                     <td>010-1111-1111</td>
+                     <td><input type="checkbox"></td>
+                     
+                  </tr>
+                  <tr>
+                     <td>2</td>
+                     <td>010-2222-2222</td>
+                     <td><input type="checkbox"></td>
+                     
+                  </tr>
+                  <tr>
+                     <td>3</td>
+                     <td>010-3333-3333</td>
+                     <td><input type="checkbox"></td>
+                     
+                  </tr>
+                  <tr>
+                     <td>4</td>
+                     <td>010-4444-4444</td>
+                     <td><input type="checkbox"></td>
+                     
+                  </tr>
+                 
+                  </table>
+                  <table>
+                     <tr>
+                        <td><div style="text-align:center;"> 🗑️</div></td>
+                     </tr>
+                  </table>
+                  <div style="display: flex; justify-content: center;">
+                     <button>기록목록보기</button>
+                  </div>
+                  </section>
+               </form>
 			</article>
 
 			<!-- 기록 -->
