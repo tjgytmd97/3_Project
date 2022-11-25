@@ -20,7 +20,7 @@ function videoStart() {//화면 출력용 함수. 계속 일정하게 카메라 
     navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
     navigator.mediaDevices.getUserMedia({  //미디어 디바이스에서 영상 읽어오기
        
-    	video: { width: 320 , height: 240 } //사이즈 변경. 너무 작게 하면 인코딩 안되서 용량 늘어남. 
+    	video: true//화면 출력용은 사이즈 변경없이 보이기
         //video:{ facingMode: "user" } //모바일 전면카메라 요청   
           , audio: false
     })
@@ -40,7 +40,7 @@ function videoready() { //카메라 녹화용 함수. 카메라 녹화를위해 
     navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
     navigator.mediaDevices.getUserMedia({  //미디어 디바이스에서 영상 읽어오기
        
-    	video: { width: 320 , height: 240 } //사이즈 변경. 너무 작게 하면 인코딩 안되서 용량 늘어남. 
+    	video: { width: 640 , height: 480 } // 인코딩 사이즈 변경. 너무 작게 하면 인코딩 안되서 용량 늘어남. 
         //video:{ facingMode: "user" } //모바일 전면카메라 요청   
           , audio: false
     })
@@ -120,9 +120,10 @@ function sleep(ms) {
 window.onload = async function () { //비동기 위해 async 와 await 사용, 무한루프문 먹통현상 제거위해 사용
     //실행할 내용
 	videoStart()
-	gpsloc()//gps신호가 반복해서 와야할경우 밑으로 넣어야함
+	
     while (true) {
-    	videoready()      
+    	videoready()
+    	gpsloc() 
         await sleep(5000)
         stopRecording()
         await sleep(10)
