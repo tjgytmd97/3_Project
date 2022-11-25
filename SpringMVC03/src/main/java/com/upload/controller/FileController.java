@@ -73,7 +73,7 @@ public class FileController {
         
         //View 위치 설정
         mv.setViewName("post/test_upload.basic");
-        return "업로드 클래스 진입후 포스트 방식 입력완료";
+        return "upload js script video upload success ";
         
     
         
