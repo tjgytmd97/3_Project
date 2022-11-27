@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:set var="cpath" value="${pageContext.request.contextPath}" />
 <!DOCTYPE HTML>
 <!--
 	Astral by HTML5 UP
@@ -59,12 +61,12 @@
 							aria-label="Close"></button>
 					</div>
 					<div class="modal-body">
-						<form action="">
-							<input type="text" placeholder="아이디" class="in"> <input
-								type="password" placeholder="비밀번호" class="in">
+						<form action="${cpath}/memberLogin.do" method="POST">
+							<input type="text" name="m_id" placeholder="아이디" class="in"> 
+							<input type="password" name="m_pw" placeholder="비밀번호" class="in">
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-dark">로그인</button>
+						<button type="button" class="btn btn-dark"><input type="submit" value="로그인"></button>
 					</div>
 					</form>
 				</div>
@@ -82,38 +84,39 @@
 							aria-label="Close"></button>
 					</div>
 					<div class="modal-body">
-						<form action="doJoin" method="POST" class="joinForm"
+						<form action="${cpath}/memberInsert.do" method="POST" class="joinForm"
 							onsubmit="DoJoinForm__submit(this); return false;">
 
 							<div class="textForm">
-								<input name="loginId" type="text" class="id" placeholder="아이디">
+								<input name="m_id" type="text" class="id" placeholder="아이디">
 								</input>
 							</div>
 							<div class="textForm">
-								<input name="loginPw" type="password" class="pw"
+								<input name="m_pw" type="password" class="pw"
 									placeholder="비밀번호">
 							</div>
-							<div class="textForm">
+							<!-- <div class="textForm">
 								<input name="loginPwConfirm" type="password" class="pw"
 									placeholder="비밀번호 확인">
+							</div> -->
+							<div class="textForm">
+								<input name="m_name" type="text" class="name" placeholder="이름">
 							</div>
 							<div class="textForm">
-								<input name="name" type="password" class="name" placeholder="이름">
+								<input name="m_car" type="text" class="carNo" placeholder="차량번호">
 							</div>
 							<div class="textForm">
-								<input name="carNo" type="text" class="carNo" placeholder="차량번호">
-							</div>
-							<div class="textForm">
-								<input name="address" type="text" class="address"
+								<input name="m_address" type="text" class="address"
 									placeholder="주소">
 							</div>
 							<div class="textForm">
-								<input name="cellphoneNo" type="number" class="cellphoneNo"
+								<input name="m_tel" type="text" class="cellphoneNo"
 									placeholder="전화번호">
 							</div>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-dark">회원가입</button>
+						<button type="button" class="btn btn-dark"><input type="submit" value="회원가입"></button>
+						
 						</form>
 					</div>
 				</div>

@@ -17,9 +17,9 @@
 			value="com.mysql.jdbc.Driver">
 		</property>
 		<property name="jdbcUrl"
-			value="jdbc:mysql://localhost:3306/mysql?useSSL=false&amp;serverTimezone=UTC"></property>
-			<property name="username" value="root"></property>
-			<property name="password" value="12345"></property>
+			value="jdbc:mysql://project-db-stu.ddns.net:3307/checkC?useSSL=false&amp;serverTimezone=UTC"/>
+			<property name="username" value="checkC"></property>
+			<property name="password" value="check1234"></property>
 	</bean>	
 
 	<!-- 히카리 CP 설정 -->
@@ -39,7 +39,8 @@
 	 
 	 <!--어떤 매퍼가 일을 하느냐??? scan : Mapper interfae들을 메모리에 올리는 것  -->
 	 <!--mybartis로  DB를 이용하려면 mapper 패키지 안에서 맵퍼 표시해야함  -->
-	 <mybatis-spring:scan base-package="kr.board.mapper"/>
+	<!--  <mybatis-spring:scan base-package="kr.board.mapper"/> -->
+	  <mybatis-spring:scan base-package="com.member.mapper"/>
 	 
 	 <!-- 파일 업로드   -->
 	 <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
