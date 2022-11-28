@@ -31,6 +31,9 @@
 	<!-- Wrapper-->
 	<div id="wrapper">
 
+
+
+
 		<!-- Nav -->
 		<div class="position-relative">
 			<nav id="nav">
@@ -40,9 +43,28 @@
 						설정</span></a> <a href="#Record" class="icon solid fa-envelope"><span>도난
 						기록</span></a> <a href="#settings" class="icon brands fa-twitter"><span>개인
 						설정</span></a>
-				<button type="button"
+						
+						
+						<c:choose>
+   <c:when test="${empty loginMember}">
+   
+   <button type="button"
 					class="btn btn-dark position-absolute top-0 end-0"
 					" data-bs-toggle="modal" data-bs-target="#exampleModal">로그인</button>
+   </c:when>
+   
+   
+     
+   <c:otherwise>
+   
+					 로그인된 아이디는 ${loginMember.m_id} 입니다
+   
+   </c:otherwise>
+</c:choose>
+						
+				
+					
+					
 				<button type="button"
 					class="btn btn-dark position-absolute bottom-0 end-0"
 					data-bs-toggle="modal" data-bs-target="#exampleModal2">회원가입</button>
