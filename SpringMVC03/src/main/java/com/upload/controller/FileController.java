@@ -6,6 +6,8 @@ import java.util.Arrays;
 import java.util.Comparator;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,6 +17,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.member.entity.Member;
+
 
 @Controller
 @RequestMapping("/file")
@@ -41,10 +46,20 @@ public class FileController {
     @RequestMapping(value="/checkuploadvideo", method=RequestMethod.POST)
     @ResponseBody //웹캡 js 에 데이터 보내주기 위해서    
     //public ModelAndView uploadForm(MultipartFile file, ModelAndView mv) {
-    public String uploadForm(MultipartFile file, ModelAndView mv) {
+    public String uploadForm(MultipartFile file, ModelAndView mv, HttpSession session,Member member) {
     	
     	String vidpath = "\\video"; //업로드 경로에 비디오 폴더 붙여서 넣기
-    	String uploadPathvideo = uploadPath+vidpath;
+    	
+    	
+    	if(session.getAttribute("loginMember")!=null){
+    		
+    		member = (Member) session.getAttribute("loginMember");
+    		System.out.println("로그인된 아이디로 폴더 생성 : "+member.getM_no());
+    		vidpath=vidpath+"\\"+member.getM_no();
+    	}
+    	
+
+String uploadPathvideo = uploadPath+vidpath;
     	
         String fileName = file.getOriginalFilename();
         File target = new File(uploadPathvideo, fileName);

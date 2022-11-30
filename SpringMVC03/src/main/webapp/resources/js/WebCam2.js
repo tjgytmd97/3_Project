@@ -139,6 +139,9 @@ var newfilename = title+dateString+timeString;
     let fd = new FormData();
     fd.append("fname", filename);
     fd.append("file", file);
+    
+    console.log("test!!!!!!")
+    
     $.ajax({
         url: "http://localhost:8085/controller/file/checkuploadvideo", //데이터 보낼  url 입력
         type: "POST",

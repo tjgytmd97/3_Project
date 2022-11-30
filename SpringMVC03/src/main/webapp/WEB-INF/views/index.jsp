@@ -23,17 +23,7 @@
                 -moz-transform:rotateY(180deg); /* Firefox */
             }
         </style>
-        <script type="text/javascript">
-        	function logout(){
-        		location.href="${cpath}/memberLogout.do";
-        	}
-        	
-        	
-        	function returnJsp(var nextPage){
-        		location.href="${cpath}/pagenext.do?nextPage="+nextPage;
-        	}
-        
-        </script>
+       
     </head>
     <body>
         <!-- Responsive navbar-->
@@ -57,16 +47,16 @@
                     		<c:otherwise>
                     				<li class="nav-item"><button type="button"
                            			 class="btn btn-dark"
-                            		 data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="returnJsp(sleepy)">졸음운전</button></li>
+                            		 data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="returnJsp('sleepy')">졸음운전</button></li>
                             		 <li class="nav-item"><button type="button"
                            			 class="btn btn-dark"
-                            		 data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="returnJsp(steal)">차량도난</button></li>
+                            		 data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="returnJsp('steal')">차량도난</button></li>
                             		 <li class="nav-item"><button type="button"
                            			 class="btn btn-dark"
-                            		 data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="returnJsp(list)">도난기록</button></li>
+                            		 data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="returnJsp('list')">도난기록</button></li>
                             		 <li class="nav-item"><button type="button"
                            			 class="btn btn-dark"
-                            		 data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="returnJsp(Mypage)">개인정보</button></li>
+                            		 data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="returnJsp('Mypage')">개인정보</button></li>
                             		 
                             		 <li class="nav-item"><button type="button" onclick="logout()"
                            			 class="btn btn-dark"
@@ -145,6 +135,22 @@
         <footer class="py-4 bg-dark">
             <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2022</p></div>
         </footer> 
+        
+         <script type="text/javascript">
+        	function logout(){
+        		location.href="${cpath}/memberLogout.do";
+        	}
+        	
+        	
+        	function returnJsp(nextPage){
+        		
+        		location.href="${cpath}/pagenext.do?nextPage="+nextPage;
+        	}
+        
+        </script>
+        
+        
+        
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
