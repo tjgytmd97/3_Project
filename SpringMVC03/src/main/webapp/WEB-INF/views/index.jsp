@@ -23,6 +23,12 @@
                 -moz-transform:rotateY(180deg); /* Firefox */
             }
         </style>
+        <script type="text/javascript">
+        	function logout(){
+        		location.href="${cpath}/memberLogout.do";
+        	}
+        
+        </script>
     </head>
     <body>
         <!-- Responsive navbar-->
@@ -57,7 +63,7 @@
                            			 class="btn btn-dark"
                             		 data-bs-toggle="modal" data-bs-target="#exampleModal">개인정보</button></li>
                             		 
-                            		 <li class="nav-item"><button type="button"
+                            		 <li class="nav-item"><button type="button" onclick="logout()"
                            			 class="btn btn-dark"
                             		 data-bs-toggle="modal" data-bs-target="#exampleModal">로그아웃</button></li>
                             </c:otherwise>

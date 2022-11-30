@@ -1,5 +1,7 @@
 package com.member.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,9 +27,15 @@ public class MemberController {
 	}
 	
 	@RequestMapping("/memberLogin.do")
-	public String memberLogin(Member member, Model model) {
+	public String memberLogin(Member member, HttpSession session) {
 		Member loginMember=mapper.memberLogin(member);
-		model.addAttribute("loginMember", loginMember);
+		session.setAttribute("loginMember", loginMember);
+		return "index";
+	}
+	
+	@RequestMapping("/memberLogout.do")
+	public String memberLogout(HttpSession session) {
+		session.removeAttribute("loginMember");
 		return "index";
 	}
 }
