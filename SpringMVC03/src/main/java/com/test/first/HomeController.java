@@ -40,6 +40,13 @@ public class HomeController {
 		public void join() {
 			
 		}
+	
+	@RequestMapping("/pagenext.do")
+		public String pagenext(String nextPage) {
+		return nextPage;
+		
+	}
+	
 	}
 	
 

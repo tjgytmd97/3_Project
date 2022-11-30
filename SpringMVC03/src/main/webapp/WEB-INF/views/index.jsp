@@ -27,6 +27,11 @@
         	function logout(){
         		location.href="${cpath}/memberLogout.do";
         	}
+        	
+        	
+        	function returnJsp(var nextPage){
+        		location.href="${cpath}/pagenext.do?nextPage="+nextPage;
+        	}
         
         </script>
     </head>
@@ -52,16 +57,16 @@
                     		<c:otherwise>
                     				<li class="nav-item"><button type="button"
                            			 class="btn btn-dark"
-                            		 data-bs-toggle="modal" data-bs-target="#exampleModal">졸음운전</button></li>
+                            		 data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="returnJsp(sleepy)">졸음운전</button></li>
                             		 <li class="nav-item"><button type="button"
                            			 class="btn btn-dark"
-                            		 data-bs-toggle="modal" data-bs-target="#exampleModal">차량도난</button></li>
+                            		 data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="returnJsp(steal)">차량도난</button></li>
                             		 <li class="nav-item"><button type="button"
                            			 class="btn btn-dark"
-                            		 data-bs-toggle="modal" data-bs-target="#exampleModal">도난기록</button></li>
+                            		 data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="returnJsp(list)">도난기록</button></li>
                             		 <li class="nav-item"><button type="button"
                            			 class="btn btn-dark"
-                            		 data-bs-toggle="modal" data-bs-target="#exampleModal">개인정보</button></li>
+                            		 data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="returnJsp(Mypage)">개인정보</button></li>
                             		 
                             		 <li class="nav-item"><button type="button" onclick="logout()"
                            			 class="btn btn-dark"
