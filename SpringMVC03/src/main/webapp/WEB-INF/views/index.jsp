@@ -32,12 +32,38 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
-                        <li class="nav-item"><button type="button"
-                            class="btn btn-dark"
-                             data-bs-toggle="modal" data-bs-target="#exampleModal">로그인</button></li>
-                        <li class="nav-item"><a href="${cpath}/join.do" type="button"
-                            class="btn btn-dark">회원가입</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
+                    	<c:choose>
+                    	
+                    		<c:when test="${empty loginMember}">
+                    			<li class="nav-item"><button type="button"
+                           			 class="btn btn-dark"
+                            		 data-bs-toggle="modal" data-bs-target="#exampleModal">로그인</button></li>
+                     			   <li class="nav-item"><a href="${cpath}/join.do" type="button"
+                            		class="btn btn-dark">회원가입</a></li>
+                    		</c:when>
+                    		
+                    		<c:otherwise>
+                    				<li class="nav-item"><button type="button"
+                           			 class="btn btn-dark"
+                            		 data-bs-toggle="modal" data-bs-target="#exampleModal">졸음운전</button></li>
+                            		 <li class="nav-item"><button type="button"
+                           			 class="btn btn-dark"
+                            		 data-bs-toggle="modal" data-bs-target="#exampleModal">차량도난</button></li>
+                            		 <li class="nav-item"><button type="button"
+                           			 class="btn btn-dark"
+                            		 data-bs-toggle="modal" data-bs-target="#exampleModal">도난기록</button></li>
+                            		 <li class="nav-item"><button type="button"
+                           			 class="btn btn-dark"
+                            		 data-bs-toggle="modal" data-bs-target="#exampleModal">개인정보</button></li>
+                            		 
+                            		 <li class="nav-item"><button type="button"
+                           			 class="btn btn-dark"
+                            		 data-bs-toggle="modal" data-bs-target="#exampleModal">로그아웃</button></li>
+                            </c:otherwise>
+                    	</c:choose>
+                        
+                       
                     </ul>
                 </div>
             </div>
@@ -60,7 +86,7 @@
                         <input type="password" name="m_pw" placeholder="비밀번호" class="in">
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-dark"><input type="submit" value="로그인"></button>
+                    <button type="submit" class="btn btn-dark">로그인</button>
                 </div>
                 </form>
             </div>
@@ -70,7 +96,8 @@
     
        
         <!-- 카테고리-->
-        <section class="pt-4">       
+        <section class="pt-4">     
+        <!--  
             <ul class="nav justify-content-center">
                 <li class="nav-item">
                   <a class="nav-link active" aria-current="page" href="index.html">메인</a>
@@ -88,6 +115,7 @@
                     <a class="nav-link" href="Mypage.html">개인 정보</a>
                    </li>
               </ul>
+              -->  
                 <div class="p-4 p-lg-5 bg-light rounded-3 text-center">
                     <div class="m-4 m-lg-5">
                <video class="position-relative w-100 p-3" id="preview" autoplay mute 
