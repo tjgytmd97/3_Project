@@ -87,6 +87,24 @@
                                         <option value="alarm2">에에에엥</option>
                                         <option value="alarm3">야!!!!</option>
                                       </select> 
+                                   
+                                      
+                                      
+                                      <form action="file/alarm" method="post" enctype="multipart/form-data">
+	<p>
+		
+		   알림음을 직접 업로드 <input type="file" name="uploadFile" value = "" accept="audio/*" >
+	</p>
+
+	<p>
+		<input type="submit" value="제출">
+	</p>
+</form>
+                                      
+                                      
+                                      
+                                      
+				
                                 </td>
                               </tr>
                               <tr>

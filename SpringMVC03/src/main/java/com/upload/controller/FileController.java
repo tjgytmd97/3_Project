@@ -114,8 +114,55 @@ String uploadPathvideo = uploadPath+vidpath;
     		System.out.println(" 파일 삭제 여부 : " +fileDeleted);
     		}
     	}
-
     	
     }
-    
+
+	
+	
+	@RequestMapping(value="/alarm", method=RequestMethod.POST)
+    @ResponseBody //웹캡 js 에 데이터 보내주기 위해서    
+    //public ModelAndView uploadForm(MultipartFile file, ModelAndView mv) {
+    public String uploadalarm(MultipartFile file, ModelAndView mv, HttpSession session,Member member) {
+    	
+    	String vidpath = "\\alarm"; //업로드 경로에 비디오 폴더 붙여서 넣기
+    	
+    	
+    	if(session.getAttribute("loginMember")!=null){
+    		
+    		member = (Member) session.getAttribute("loginMember");
+    		System.out.println("로그인된 아이디로 폴더 생성 : "+member.getM_no());
+    		vidpath=vidpath+"\\"+member.getM_no();
+    	}
+    	
+
+String uploadPathvideo = uploadPath+vidpath;
+    	
+        String fileName = "mp3alarm";
+        File target = new File(uploadPathvideo, fileName);
+        System.out.println("파일업로드 클래스 진입, 파일이름 : "+fileName+" ,파일 경로 : "+target);
+        
+        //경로 생성
+        if ( ! new File(uploadPathvideo).exists()) {
+            new File(uploadPathvideo).mkdirs();
+            System.out.println("파일 경로 생성");
+        }
+       
+        
+        //파일 복사
+        try {
+            FileCopyUtils.copy(file.getBytes(), target);
+            mv.addObject("file", file);
+            System.out.println("파일 복사 ");
+        } catch(Exception e) {
+            e.printStackTrace();
+            mv.addObject("file", "error");
+           
+        }
+       
+              
+        //View 위치 설정
+        mv.setViewName("post/test_upload.basic");
+        return "upload js script video upload success ";
+        
+    }
 }
