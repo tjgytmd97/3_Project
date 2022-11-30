@@ -28,9 +28,9 @@
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
                     <li class="nav-item"><button type="button" class="btn btn-dark" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">ë¡ê·¸ì¸</button></li>
+                            data-bs-target="#exampleModal">로그인</button></li>
                     <li class="nav-item"><button type="button" class="btn btn-dark" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal2">íìê°ì</button></li>
+                            data-bs-target="#exampleModal2">회원가입</button></li>
                 </ul>
             </div>
         </div>
@@ -39,7 +39,7 @@
     <header class="py-5 bg-image-full"
         style="background-image: url('https://source.unsplash.com/wfh8dDlNFOk/1600x900')">
         <div class="text-center my-2">
-            <p class="fs-1">ê¸°ë¡ ëª©ë¡</p>
+            <p class="fs-1">기록 목록</p>
         </div>
     </header>
 
@@ -53,16 +53,16 @@
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">ë ì§ / ìê°</th>
-                                    <th scope="col">ìì</th>
+                                    <th scope="col">날짜 / 시간</th>
+                                    <th scope="col">영상</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <th scope="row">1</th>
-                                    <td>ë ì§ / ìê°</td>
+                                    <td>날짜 / 시간</td>
                                     <td>
-                                        <a href="#" class="link-secondary">ììë§í¬</a>
+                                        <a href="#" class="link-secondary">영상링크</a>
                                         <button type="button" class="btn btn-light" style="float: right">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                 fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
@@ -74,9 +74,9 @@
                                 </tr>
                                 <tr>
                                     <th scope="row">2</th>
-                                    <td>ë ì§ / ìê°</td>
+                                    <td>날짜 / 시간</td>
                                     <td>
-                                        <a href="#" class="link-secondary">ììë§í¬</a>
+                                        <a href="#" class="link-secondary">영상링크</a>
                                         <button type="button" class="btn btn-light" style="float: right">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                 fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
@@ -88,9 +88,9 @@
                                 </tr>
                                 <tr>
                                     <th scope="row">3</th>
-                                    <td>ë ì§ / ìê°</td>
+                                    <td>날짜 / 시간</td>
                                     <td>
-                                        <a href="#" class="link-secondary">ììë§í¬</a>
+                                        <a href="#" class="link-secondary">영상링크</a>
                                         <button type="button" class="btn btn-light" style="float: right">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                 fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
@@ -102,9 +102,9 @@
                                 </tr>
                                 <tr>
                                     <th scope="row">4</th>
-                                    <td>ë ì§ / ìê°</td>
+                                    <td>날짜 / 시간</td>
                                     <td>
-                                        <a href="#" class="link-secondary">ììë§í¬</a>
+                                        <a href="#" class="link-secondary">영상링크</a>
                                         <button type="button" class="btn btn-light" style="float: right">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                 fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
@@ -116,9 +116,9 @@
                                 </tr>
                                 <tr>
                                     <th scope="row">5</th>
-                                    <td>ë ì§ / ìê°</td>
+                                    <td>날짜 / 시간</td>
                                     <td>
-                                        <a href="#" class="link-secondary">ììë§í¬</a>
+                                        <a href="#" class="link-secondary">영상링크</a>
                                         <button type="button" class="btn btn-light" style="float: right">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                 fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">

@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta name="description" content="" />
   <meta name="author" content="" />
-  <title>íìê°ì</title>
+  <title>회원가입</title>
   <!-- Favicon-->
   <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
   <!-- Core theme CSS (includes Bootstrap)-->
@@ -28,9 +28,9 @@
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
           <li class="nav-item"><button type="button" class="btn btn-dark" data-bs-toggle="modal"
-              data-bs-target="#exampleModal">ë¡ê·¸ì¸</button></li>
+              data-bs-target="#exampleModal">로그인</button></li>
           <li class="nav-item"><button type="button" class="btn btn-dark" data-bs-toggle="modal"
-              data-bs-target="#exampleModal2">íìê°ì</button></li>
+              data-bs-target="#exampleModal2">회원가입</button></li>
         </ul>
       </div>
     </div>
@@ -39,7 +39,7 @@
   <!-- Header - set the background image for the header in the line below-->
   <header style="background-image: url('https://source.unsplash.com/wfh8dDlNFOk/1600x900')">
     <div class="text-center my-5">
-      <p class="fs-1">íìê°ì</p>
+      <p class="fs-1">회원가입</p>
     </div>
   </header>
 
@@ -47,28 +47,28 @@
     <div class="container">
       <form>
         <div class="form-group">
-          <label for="exampleInputEmail1" class="form-label">ìì´ë</label>
+          <label for="exampleInputEmail1" class="form-label">아이디</label>
           <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
         </div>
         <div class="form-group has-success">
-          <label class="form-label" for="inputValid">ë¹ë°ë²í¸</label>
+          <label class="form-label" for="inputValid">비밀번호</label>
           <input type="password" class="form-control" id="inputValid">
           <div class="valid-feedback"></div>
         </div>
         <div class="form-group">
-          <label for="exampleInputEmail1" class="form-label">ì´ë¦</label>
+          <label for="exampleInputEmail1" class="form-label">이름</label>
           <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
         </div>
         <div class="form-group">
-          <label for="exampleInputEmail1" class="form-label">ì°¨ëë²í¸</label>
+          <label for="exampleInputEmail1" class="form-label">차량번호</label>
           <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
         </div>
         <div class="form-group">
-          <label for="exampleInputEmail1" class="form-label mt-4">ì íë²í¸</label>
+          <label for="exampleInputEmail1" class="form-label mt-4">전화번호</label>
           <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
         </div>
         <div class="form-group">
-          <label for="exampleInputEmail1" class="form-label">ì£¼ì</label>
+          <label for="exampleInputEmail1" class="form-label">주소</label>
           <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
         </div>
         <div class="p-4 p-lg-5 bg-light rounded-3 text-center">
@@ -78,8 +78,8 @@
           </div>
         </div>
         <div class="d-grid gap-2">
-          <button class="btn btn-primary btn-lg" type="button">ê°ìíê¸°</button>
-          <button class="btn btn-primary btn-lg" type="button">ì·¨ì</button>
+          <button class="btn btn-primary btn-lg" type="button">가입하기</button>
+          <button class="btn btn-primary btn-lg" type="button">취소</button>
         </div>
 
 

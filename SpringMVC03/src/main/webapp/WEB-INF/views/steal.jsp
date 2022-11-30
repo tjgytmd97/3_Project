@@ -25,10 +25,10 @@
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
                         <li class="nav-item"><button type="button"
                             class="btn btn-dark"
-                             data-bs-toggle="modal" data-bs-target="#exampleModal">ë¡ê·¸ì¸</button></li>
+                             data-bs-toggle="modal" data-bs-target="#exampleModal">로그인</button></li>
                         <li class="nav-item"><button type="button"
                             class="btn btn-dark"
-                            data-bs-toggle="modal" data-bs-target="#exampleModal2">íìê°ì</button></li>
+                            data-bs-toggle="modal" data-bs-target="#exampleModal2">회원가입</button></li>
                     </ul>
                 </div>
             </div>
@@ -36,7 +36,7 @@
         <!-- Header - set the background image for the header in the line below-->
         <header style="background-image: url('https://source.unsplash.com/wfh8dDlNFOk/1600x900')">
             <div class="text-center my-5">
-                <p class="fs-1">ëë ì¤ì </p>
+                <p class="fs-1">도난 설정</p>
             </div>
         </header>
         <!-- Content section-->
@@ -49,23 +49,23 @@
                             <thead>
                               <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">ì í</th>
+                                <th scope="col">선택</th>
                               </tr>
                             </thead>
                             <tbody>
                               <tr>
-                                <th scope="row">ìë¦¼ì</th>
+                                <th scope="row">알림음</th>
                                 <td>
                                     <select class="form-select" aria-label="Default select example">
-                                        <option selected>ìë¦¼ì ì í</option>
-                                        <option value="alarm1">ìì©</option>
-                                        <option value="alarm2">ìììì¥</option>
-                                        <option value="alarm3">ì¼!!!!</option>
+                                        <option selected>알림음 선택</option>
+                                        <option value="alarm1">삐용</option>
+                                        <option value="alarm2">에에에엥</option>
+                                        <option value="alarm3">야!!!!</option>
                                       </select> 
                                 </td>
                               </tr>
                               <tr>
-                                <th scope="row">ì°ë½ì²</th>
+                                <th scope="row">연락처</th>
                                 <td>
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
@@ -89,7 +89,7 @@
                               </tr>
                             </tbody>
                           </table>
-                          <button type="button" class="btn btn-outline-secondary" disabled style="float: right;">ì°¨ëëëìì ìë£</button>
+                          <button type="button" class="btn btn-outline-secondary" disabled style="float: right;">차량도난수정완료</button>
                     </div>
                 </div>
             </div>
@@ -97,7 +97,7 @@
         </section>
         <div class="row justify-content-center">
             <div class="d-grid gap-2 col-6 mx-auto">
-                <a href="list.html" class="btn btn-secondary disabled" tabindex="-1" role="button" aria-disabled="true">ê¸°ë¡ëª©ë¡</a>
+                <a href="list.html" class="btn btn-secondary disabled" tabindex="-1" role="button" aria-disabled="true">기록목록</a>
         </div>
 
         <!-- Content section-->
@@ -116,3 +116,4 @@
         <script src="js/scripts.js"></script>
     </body>
 </html>
+

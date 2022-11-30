@@ -28,9 +28,9 @@
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
                     <li class="nav-item"><button type="button" class="btn btn-dark" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">ë¡ê·¸ì¸</button></li>
+                            data-bs-target="#exampleModal">로그인</button></li>
                     <li class="nav-item"><button type="button" class="btn btn-dark" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal2">íìê°ì</button></li>
+                            data-bs-target="#exampleModal2">회원가입</button></li>
                 </ul>
             </div>
         </div>
@@ -38,7 +38,7 @@
     <!-- Header - set the background image for the header in the line below-->
     <header style="background-image: url('https://source.unsplash.com/wfh8dDlNFOk/1600x900')">
         <div class="text-center my-5">
-            <p class="fs-1">ê°ì¸ì ë³´</p>
+            <p class="fs-1">개인정보</p>
         </div>
     </header>
 
@@ -47,7 +47,7 @@
         <!-- Content IMG section-->
         <div class="container my-4">
             <div class="text-center">
-                <img class="rounded" src="/ì¤í´ì.jpg" alt="ì¼êµ´ ì´ë¯¸ì§" style="width: 15em;" />
+                <img class="rounded" src="/오해원.jpg" alt="얼굴 이미지" style="width: 15em;" />
             </div>
         </div>
     </section>
@@ -61,7 +61,7 @@
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">ë¹ìì°ë½ë§</th>
+                                    <th scope="col">비상연락망</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -69,7 +69,7 @@
                                     <th scope="row">1</th>
                                     <th>
                                         <input class="p-1 flex-fill bd-highlight" type="phonenum" class="form-control"
-                                            id="" placeholder="ì íë²í¸submit">
+                                            id="" placeholder="전화번호submit">
                                         <svg class="p-2 flex-fill bd-highlight bi bi-trash3" xmlns="http://www.w3.org/2000/svg"
                                             fill="currentColor" viewBox="0 0 16 16" height="2em" style="float: right">
                                             <path
@@ -102,16 +102,16 @@
                         <table class="table caption-top">
                             <thead>
                                 <tr>
-                                    <th scope="col">ì§ ì£¼ì</th>
+                                    <th scope="col">집 주소</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <th><input type="address" class="form-control" id="" placeholder="ì§ì£¼ìsubmit"></th>
+                                    <th><input type="address" class="form-control" id="" placeholder="집주소submit"></th>
                                 </tr>
                             </tbody>
                         </table>
-                        <button type="button" class="btn btn-outline-secondary" disabled style="float: right;">ê°ì¸ì ë³´ìì ìë£</button>
+                        <button type="button" class="btn btn-outline-secondary" disabled style="float: right;">개인정보수정완료</button>
                     </div>
                 </div>
             </div>
@@ -121,7 +121,7 @@
     <div class="row justify-content-center">
         <div class="d-grid gap-2 col-6 mx-auto">
             <a href="list.html" class="btn btn-secondary disabled" tabindex="-1" role="button"
-                aria-disabled="true">ê¸°ë¡ëª©ë¡</a>
+                aria-disabled="true">기록목록</a>
         </div>
 
         <section class="py-5">

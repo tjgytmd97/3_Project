@@ -25,10 +25,10 @@
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
                         <li class="nav-item"><button type="button"
                             class="btn btn-dark"
-                             data-bs-toggle="modal" data-bs-target="#exampleModal">ë¡ê·¸ì¸</button></li>
+                             data-bs-toggle="modal" data-bs-target="#exampleModal">로그인</button></li>
                         <li class="nav-item"><button type="button"
                             class="btn btn-dark"
-                            data-bs-toggle="modal" data-bs-target="#exampleModal2">íìê°ì</button></li>
+                            data-bs-toggle="modal" data-bs-target="#exampleModal2">회원가입</button></li>
                     </ul>
                 </div>
             </div>
@@ -37,7 +37,7 @@
         <!-- Header - set the background image for the header in the line below-->
         <header style="background-image: url('https://source.unsplash.com/wfh8dDlNFOk/1600x900')">
             <div class="text-center my-5">
-                <p class="fs-1">ì¡¸ì ë°©ì§ ì¤ì </p>
+                <p class="fs-1">졸음 방지 설정</p>
             </div>
         </header>
         
@@ -51,12 +51,12 @@
                             <thead>
                               <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">ì í</th>
+                                <th scope="col">선택</th>
                               </tr>
                             </thead>
                             <tbody>
                               <tr>
-                                <th scope="row">ë¹ìì°ë½ë§</th>
+                                <th scope="row">비상연락망</th>
                                 <td>
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
@@ -79,30 +79,30 @@
                                 </td>
                               </tr>
                               <tr>
-                                <th scope="row">ìë¦¼ì</th>
+                                <th scope="row">알림음</th>
                                 <td>
                                     <select class="form-select" aria-label="Default select example">
-                                        <option selected>ìë¦¼ì ì í</option>
-                                        <option value="alarm1">ìì©</option>
-                                        <option value="alarm2">ìììì¥</option>
-                                        <option value="alarm3">ì¼!!!!</option>
+                                        <option selected>알림음 선택</option>
+                                        <option value="alarm1">삐용</option>
+                                        <option value="alarm2">에에에엥</option>
+                                        <option value="alarm3">야!!!!</option>
                                       </select> 
                                 </td>
                               </tr>
                               <tr>
-                                <th scope="row">ìë¦¼ ìê°</th>
+                                <th scope="row">알림 시간</th>
                                 <td>
                                     <select class="form-select" aria-label="Default select example">
-                                        <option selected>ìë¦¼ ìê° ì í</option>
-                                        <option value="time1">2ì´</option>
-                                        <option value="time2">4ì´</option>
-                                        <option value="time3">6ì´</option>
+                                        <option selected>알림 시간 선택</option>
+                                        <option value="time1">2초</option>
+                                        <option value="time2">4초</option>
+                                        <option value="time3">6초</option>
                                       </select> 
                                 </td>
                               </tr>
                             </tbody>
                           </table>
-                          <button type="button" class="btn btn-outline-secondary" disabled style="float: right;">ì¡¸ìì´ì ìì ìë£</button>
+                          <button type="button" class="btn btn-outline-secondary" disabled style="float: right;">졸음운전수정완료</button>
                     </div>
                 </div>
             </div>
@@ -125,3 +125,4 @@
         <script src="js/scripts.js"></script>
     </body>
 </html>
+

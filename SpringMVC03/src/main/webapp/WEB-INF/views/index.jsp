@@ -34,32 +34,32 @@
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
                         <li class="nav-item"><button type="button"
                             class="btn btn-dark"
-                             data-bs-toggle="modal" data-bs-target="#exampleModal">ë¡ê·¸ì¸</button></li>
+                             data-bs-toggle="modal" data-bs-target="#exampleModal">로그인</button></li>
                         <li class="nav-item"><a href="/join.html" type="button"
-                            class="btn btn-dark">íìê°ì</a></li>
+                            class="btn btn-dark">회원가입</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
 
         <!-- Modal -->
-      <!-- ë¡ê·¸ì¸ -->
+      <!-- 로그인 -->
       <div class="modal fade" id="exampleModal" tabindex="-1"
         aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">ë¡ê·¸ì¸</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">로그인</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                         aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form action="${cpath}/memberLogin.do" method="POST">
-                        <input type="text" name="m_id" placeholder="ìì´ë" class="in"> 
-                        <input type="password" name="m_pw" placeholder="ë¹ë°ë²í¸" class="in">
+                        <input type="text" name="m_id" placeholder="아이디" class="in"> 
+                        <input type="password" name="m_pw" placeholder="비밀번호" class="in">
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-dark"><input type="submit" value="ë¡ê·¸ì¸"></button>
+                    <button type="button" class="btn btn-dark"><input type="submit" value="로그인"></button>
                 </div>
                 </form>
             </div>
@@ -68,23 +68,23 @@
 
     
        
-        <!-- ì¹´íê³ ë¦¬-->
+        <!-- 카테고리-->
         <section class="pt-4">       
             <ul class="nav justify-content-center">
                 <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="index.html">ë©ì¸</a>
+                  <a class="nav-link active" aria-current="page" href="index.html">메인</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="sleepy.html">ì¡¸ì ì´ì </a>
+                  <a class="nav-link" href="sleepy.html">졸음 운전</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="steal.html">ì°¨ë ëë</a>
+                  <a class="nav-link" href="steal.html">차량 도난</a>
                 </li>
                 <li class="nav-item">
-                 <a class="nav-link" href="list.html">ëë ê¸°ë¡</a>
+                 <a class="nav-link" href="list.html">도난 기록</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="Mypage.html">ê°ì¸ ì ë³´</a>
+                    <a class="nav-link" href="Mypage.html">개인 정보</a>
                    </li>
               </ul>
                 <div class="p-4 p-lg-5 bg-light rounded-3 text-center">
