@@ -6,7 +6,7 @@ public class Member {
 	private String m_pw;
 	private String m_name;
 	private String m_car;
-	private String m_address;
+	private String m_address; 
 	private String m_tel;
 	public int getM_no() {
 		return m_no;

@@ -17,7 +17,7 @@ public class MemberController {
 	@Autowired
 	private MemberMapper mapper;
 	
-	
+	 
 	@RequestMapping("/memberInsert.do")
 	public String memberInsert(Member member) {
 		mapper.memberInsert(member);
