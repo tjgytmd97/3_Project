@@ -36,7 +36,7 @@
                         <li class="nav-item"><button type="button"
                             class="btn btn-dark"
                              data-bs-toggle="modal" data-bs-target="#exampleModal">로그인</button></li>
-                        <li class="nav-item"><a href="/join.html" type="button"
+                        <li class="nav-item"><a href="${cpath}/join.do" type="button"
                             class="btn btn-dark">회원가입</a></li>
                     </ul>
                 </div>
@@ -109,7 +109,8 @@
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
-        <script src="resource/js/scripts.js"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+        <script src="resources/js/scripts.js"></script>
         <script src="resources/js/WebCam2.js"></script>
     </body>
 </html>

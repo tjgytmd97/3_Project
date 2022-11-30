@@ -36,4 +36,10 @@ public class HomeController {
 		return "index";
 	}
 	
-}
+	@RequestMapping("/join.do")
+		public void join() {
+			
+		}
+	}
+	
+
