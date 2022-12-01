@@ -12,8 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.flask.entity.Flask;
+
 @Controller
 public class test {
+	
 	@RequestMapping(value = "/test.do", method = RequestMethod.GET)
 	public ModelAndView Test() {
 		ModelAndView mav = new ModelAndView();
@@ -45,10 +48,17 @@ public class test {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		String [] srt=sb.toString().split(",");
+		System.out.println(srt[0]);
+		System.out.println(srt[1]);
+		System.out.println(srt[2]);
+		
+		Flask flask = new Flask(Integer.parseInt(srt[0]), srt[1], srt[2]);
 		mav.addObject("test1", sb.toString()); // "test1"는 jsp파일에서 받을때 이름, 
         						//sb.toString은 value값(여기에선 test)
 		mav.addObject("fail", false);
 		mav.setViewName("test");   // jsp파일 이름
 		return mav;
-}
+	
+	}
 }
