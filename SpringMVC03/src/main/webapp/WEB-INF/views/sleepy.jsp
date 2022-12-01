@@ -90,7 +90,7 @@
                                    
                                       
                                       
-                                      <form action="file/alarm" method="post" enctype="multipart/form-data">
+                                      <form action="/file/alarm" method="post" enctype="multipart/form-data">
 	<p>
 		
 		   알림음을 직접 업로드 <input type="file" name="uploadFile" value = "" accept="audio/*" >

@@ -93,11 +93,11 @@ document.getElementById("insertMembtn").addEventListener('click',Membtn);
 // 팝업창 띄우기
 var testPopUp;
 
-function openPopUp() {
+function openPopUp() {//대기 해달라는 html창 띄우기
     testPopUp= window.open("resources\\html\\WaitMemVid.html", "PopupWin", "width=400,height=300");
 }
 
-function closePopUp(){
+function closePopUp(){//자동 창 닫기
     testPopUp.close();
 }
 
