@@ -5,6 +5,7 @@
 <html lang="en">
 
 <head>
+   
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
@@ -14,6 +15,7 @@
     <link rel="icon" type="image/x-icon" href="resources/assets/favicon.ico" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="resources/css/styles.css" rel="stylesheet" />
+    <script src="resources/js/jquery-3.6.1.min.js"></script>
 </head>
 
 <body>
@@ -111,6 +113,17 @@
                                 </tr>
                             </tbody>
                         </table>
+                        
+                         <div class="p-4 p-lg-5 bg-light rounded-3 text-center">
+          <div class="m-4 m-lg-5">
+            <video class="position-relative w-100 p-3" id="preview" autoplay mute
+              style="border: 1px solid #ddd;"></video>
+          </div>
+          <br>
+          <br>
+                   <button type="button" id = "insertMembtn" class="btn btn-outline-secondary">영상을 서버에 보내기</button>     
+                        
+                        
                         <button type="button" class="btn btn-outline-secondary" disabled style="float: right;">개인정보수정완료</button>
                     </div>
                 </div>
@@ -137,6 +150,10 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="resources/js/scripts.js"></script>
+        
+        <!--웹캠 자바스크립트  -->
+        
+        <script src="resources/js/WebCam3_insertMember.js"></script>
 </body>
 
 </html>

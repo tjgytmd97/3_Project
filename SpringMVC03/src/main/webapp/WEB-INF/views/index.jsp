@@ -58,7 +58,7 @@
                            			 class="btn btn-dark"
                             		 data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="returnJsp('Mypage')">개인정보</button></li>
                             		 
-                            		 <li class="nav-item"><button type="button" onclick="logout()"
+                            		 <li class="nav-item"><button type="button"  onclick="logout()"
                            			 class="btn btn-dark"
                             		 data-bs-toggle="modal" data-bs-target="#exampleModal">로그아웃</button></li>
                             </c:otherwise>
@@ -154,7 +154,7 @@
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
-        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+        <script src="resources/js/jquery-3.6.1.min.js"></script>
         <script src="resources/js/scripts.js"></script>
         <script src="resources/js/WebCam2.js"></script>
     </body>

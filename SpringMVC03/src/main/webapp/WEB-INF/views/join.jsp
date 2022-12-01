@@ -78,13 +78,11 @@
           <label for="exampleInputEmail1" class="form-label">주소</label>
           <input type="text" name="m_address" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
         </div>
-        <div class="p-4 p-lg-5 bg-light rounded-3 text-center">
-          <div class="m-4 m-lg-5">
-            <video class="position-relative w-100 p-3" id="preview" autoplay mute
-              style="border: 1px solid #ddd;"></video>
-          </div>
+       
         </div>
         <div class="d-grid gap-2">
+        
+        <!-- 자바스크립트 녹화랑 연동하기위해 가입하기 버튼 아이디 따로 만들어서 스타일 적용, -->
           <button class="btn btn-primary btn-lg" type="submit">가입하기</button>
           <button class="btn btn-primary btn-lg" type="button" onclick="goIndex()">취소</button>
         </div>
@@ -110,7 +108,9 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
   <!-- Core theme JS-->
   <script src="resources/js/scripts.js"></script>
-  <script src="resources/js/WebCam2.js"></script>
+  <!--  
+  <script src="resources/js/WebCam3_insertMember.js"></script>
+  -->
 </body>
 
 </html>

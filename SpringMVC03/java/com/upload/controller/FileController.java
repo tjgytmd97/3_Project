@@ -55,11 +55,12 @@ public class FileController {
     		
     		member = (Member) session.getAttribute("loginMember");
     		System.out.println("로그인된 아이디로 폴더 생성 : "+member.getM_no());
-    		vidpath=vidpath+"\\"+member.getM_no();
+    		vidpath="\\membervid\\"+member.getM_no();
     	}
     	
-
 String uploadPathvideo = uploadPath+vidpath;
+
+System.out.println("현재 uploadPathvideo : " + uploadPathvideo);
     	
         String fileName = file.getOriginalFilename();
         File target = new File(uploadPathvideo, fileName);
@@ -92,9 +93,61 @@ String uploadPathvideo = uploadPath+vidpath;
         
     }
     
+    
+    
+    @RequestMapping(value="/insertmemvid", method=RequestMethod.POST)
+    @ResponseBody //웹캡 js 에 데이터 보내주기 위해서    
+    //public ModelAndView uploadForm(MultipartFile file, ModelAndView mv) {
+    public String uploadForm2(MultipartFile file, ModelAndView mv, HttpSession session,Member member) {
+    	
+    	String vidpath = "\\insertmemvid"; //업로드 경로에 비디오 폴더 붙여서 넣기
+    	
+    	
+    	if(session.getAttribute("loginMember")!=null){
+    		
+    		member = (Member) session.getAttribute("loginMember");
+    		System.out.println("로그인된 아이디로 폴더 생성 : "+member.getM_no());
+    		vidpath=vidpath+"\\"+member.getM_no();
+    	}
+    	
+
+String uploadPathvideo = uploadPath+vidpath;
+    	
+        String fileName = "vid_"+member.getM_no()+".mp4";
+        File target = new File(uploadPathvideo, fileName);
+        System.out.println("파일업로드 클래스 진입, 파일이름 : "+fileName+" ,파일 경로 : "+target);
+        
+        //경로 생성
+        if ( ! new File(uploadPathvideo).exists()) {
+            new File(uploadPathvideo).mkdirs();
+            System.out.println("파일 경로 생성");
+        }
+       
+        
+        //파일 복사
+        try {
+            FileCopyUtils.copy(file.getBytes(), target);
+            mv.addObject("file", file);
+            System.out.println("파일 복사 ");
+        } catch(Exception e) {
+            e.printStackTrace();
+            mv.addObject("file", "error");
+           
+        }
+       
+        deltempvidFile(uploadPathvideo); //파일 삭제
+        
+        
+        //View 위치 설정
+        mv.setViewName("post/test_upload.basic");
+        return "upload js script video upload success ";
+        
+    }
+    
+    
+    
         
     public void deltempvidFile(String uploadPath){ //업로드 된 비디오 개수 조절
-    	System.out.println("비디오 파일 삭제 메서드 진입");
     	
     	File dir = new File(uploadPath); //받아온 경로 지정
     	File fileslist[] = dir.listFiles(); // 파일 리스트 배열로 생성, 경로 포함
@@ -106,7 +159,7 @@ String uploadPathvideo = uploadPath+vidpath;
     	if(fileslist.length>15){ //파일 최대숫자 지정
     		
     		
-    		for (int i = fileslist.length-1; i < fileslist.length; i++) {//파일 지우기. 오래된 파일 하나씩 지우기
+    		for (int i = 14; i < fileslist.length; i++) {//파일 지우기. 오래된 파일 하나씩 지우기
     			
     			System.out.print( "삭제될 파일 : "+fileslist[i]);
     			boolean fileDeleted = fileslist[i].delete();

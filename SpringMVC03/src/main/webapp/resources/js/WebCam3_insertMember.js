@@ -66,62 +66,51 @@ function playRecording() { //기존의 녹화된영상을 웹에서 재생하는
 	    //서버 호출 함수
 	   	sendAvi(videoBlob);	   
 	    console.log("서버 전송 시작");
-/*
-    //const recordedBlob = new Blob(recordedChunks, { type: "video/mpeg" }); // 저장할 비디오 확장자 설정, 코덱처리가 들어갈수도 있을듯
-    const recordedBlob = new Blob(recordedChunks, { type:"video/webm" }); // 저장할 비디오 확장자 설정, 코덱처리가 들어갈수도 있을듯
-    recordingPlayer.src = URL.createObjectURL(recordedBlob);//blob 데이터를 url로 보내게 변경
-    */
-    //recordingPlayer.play();//녹화된 영상을 재생
-    /*
-    downloadButton.href = recordingPlayer.src;
-    downloadButton.download = `recording_${new Date()}.webm`;
-    */
-    //console.log(recordingPlayer.src);
 
 }
 
-//event 버튼 이벤트 비활성화
-/*
-recordButton.addEventListener("click",videoStart);
-stopButton.addEventListener("click",stopRecording);
-playButton.addEventListener("click",playRecording);
 
-*/
-
-//video, button 엘리먼트 취득
-/*
-const $video_realtime = document.querySelector("#video_realtime");
-const $video_record = document.querySelector("#video_record");
-const $btn_start = document.querySelector("#btn_start");
-const $btn_stop = document.querySelector("#btn_stop");
-*/
-//반복문 
-
-
+//비동기식 슬립
 
 function sleep(ms) {
     return new Promise((r) => setTimeout(r, ms));
     console.log(`sleep for ${ms}ms`);
 }
 
+//동기 슬립함수
+/*
+function sleep(ms) {
+	  const wakeUpTime = Date.now() + ms;
+	  while (Date.now() < wakeUpTime) {}
+	}
+*/
+window.onload = videoStart()	;
 
-//자바스크립트 로딩 되자마자 실행
-window.onload = async function () { //비동기 위해 async 와 await 사용, 무한루프문 먹통현상 제거위해 사용
-    //실행할 내용
-	videoStart()
-	
-    while (true) {
-    	videoready()
-    	gpsloc() 
-        await sleep(5000)
-        stopRecording()
-        await sleep(10)
-        playRecording()
-        await sleep(10)
-    
-    }
+//회원가입 버튼을 누르면 녹화후 전송 실행
+document.getElementById("insertMembtn").addEventListener('click',Membtn);
+
+
+// 팝업창 띄우기
+var testPopUp;
+
+function openPopUp() {
+    testPopUp= window.open("resources\\html\\WaitMemVid.html", "PopupWin", "width=400,height=300");
 }
 
+function closePopUp(){
+    testPopUp.close();
+}
+
+async function Membtn(){//회원가입 버튼 클릭시 실행되는 함수
+	await openPopUp()
+	await videoready() 	
+     await sleep(5000)
+     stopRecording()
+     await sleep(10)
+     playRecording2()
+     await sleep(10)
+	await closePopUp()
+}
 
 
 // 영상 서버로 보내기 ajax 이용
@@ -236,141 +225,61 @@ function gpsloc() {
 }
 
 
-/*
-function sendgps(latitude,longitude,currntspeed) {  //sendAvi = 서버로 보내는메서드
-    //if (blob == null) return; //데이터 없으면 반환
+function playRecording2() { //기존의 녹화된영상을 웹에서 재생하는 기능 대신 영상을 인코딩에서 jsp로 보내는 역활을 함	
+	  videoBlob = new Blob(recordedChunks, { type: "mp4; codecs=h.264" });
+	    console.log(videoBlob)
+	   recordedVideoURL = window.URL.createObjectURL(videoBlob)
+	    //서버 호출 함수
+	   	sendAvi2(videoBlob);	   
+	    console.log("서버 전송 시작");
+}
+
+const sendAvi2 = blob => {  //sendAvi = 서버로 보내는메서드
+    if (blob == null) return; //데이터 없으면 반환
     //현재시간을 이용해 파일이름 만들기
-   
-	
-	//let filename = newfilename + ".avi";
-    let tempgps =[latitude,longitude,currntspeed]
+    var today = new Date();
+    var year = today.getFullYear();
+var month = ('0' + (today.getMonth() + 1)).slice(-2);
+var day = ('0' + today.getDate()).slice(-2);
+var dateString = year + '_' + month  + '_' + day+'_'; //날짜 포맷으로 변경
+var today = new Date();   
+var hours = ('0' + today.getHours()).slice(-2); 
+var minutes = ('0' + today.getMinutes()).slice(-2);
+var seconds = ('0' + today.getSeconds()).slice(-2); 
+var timeString = hours + '_' + minutes  + '_' + seconds;//시간포맷으로 변경
+var title = 'vid_';
+var newfilename = title+dateString+timeString;
+
+    //let filename = newfilename + ".avi";
+    let filename = newfilename + ".mp4";  //파일이름 처리. 확장자 붙이기
+    //let filename = newfilename + ".webm";
+    const file = new File([blob], filename);
+    let fd = new FormData();
+    fd.append("fname", filename);
+    fd.append("file", file);
     
-    for(let i=0;i<tempgps.lenth;i++){
-    	if(gps[i]=null){
-    		tempgps[i]=0;
-    	}
-    	console.log(tempgps[i])
-    }
+    console.log("test!!!!!!")
     
-  
     $.ajax({
-        url: "http://localhost:8085/controller/gps/insert", //데이터 보낼  url 입력
+        url: "http://localhost:8085/controller/file/insertmemvid", //데이터 보낼  url 입력
         type: "POST",
-        traditional : true,
-         data: tempgps, //전송할 데이터가 담긴 변수 변수
+        contentType: false, // 이 옵션과 아래옵션 모두 false로 해놔야 전송 가능  false 로 선언 시 content-type 헤더가 multipart/form-data로 전송되게 함
+        processData: false, // false로 선언 시 formData를 string으로 변환하지 않음
+        data: fd, //전송할 데이터가 담긴 변수 변수
         success: function (data, textStatus) { //성공시 넘어온 데이터를 받는다.
             if (data != null) { //성공시 받아온 데이터가 있다면
-                console.log("gps 서버 전송 성공");
+                console.log("동영상 서버 전송 성공");
+                //console.log(data) //서버에서 받아온 응답 데이터 출력
                 //setUsdaterResponse(data);  //데이터 처리
                 //send(a);
             }
         },
         error: function (errorMessage) { //실패시 호출
             // setUserResponse("");
-            console.log("gps 서버 전송 실패" + errorMessage);
+            console.log("동영상 서버 전송 실패" + errorMessage);
         },
     }).done(function (data) { // HTTP 요청이 성공하면 요청한 데이터가 done() 메소드로 전달됨.
-       });
+        console.log("영상 전송 HTTP 요청이 성공하였습니다.");
+        console.log(data);
+    });
 }
-*/
-/*
-sleep(10)    
-.then(() =>   videoStart())
-.then(console.log("videoStart!"))
-.then(() =>   sleep(5000))
-.then(() =>  stopRecording())
-.then(console.log("stopRecording!"))
-*/
-
-
-/*
-
-//===============샘플코드----------------------
-
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>카메라 영상 녹화</title>
-</head>
-<body>
-  <button id="btn_start">시작</button>
-  <button id="btn_stop">정지</button>
-  <br><br>
-  <video id="video_realtime" controls>실시간 영상 재생용</video>
-  <video id="video_record" controls>녹화된 영상 재생용</video>
-</body>
-
-<script>
-  // video, button 엘리먼트 취득
-  const $video_realtime = document.querySelector("#video_realtime");
-  const $video_record = document.querySelector("#video_record");
-  const $btn_start = document.querySelector("#btn_start");
-  const $btn_stop = document.querySelector("#btn_stop");
-
-  // MediaRecorder(녹화기) 변수 선언
-  let mediaRecorder = null;
-
-  // 영상 데이터를 담아줄 배열 선언
-  const arrVideoData = [];
-  
-
-  // 시작 버튼 이벤트 처리
-  $btn_start.onclick = async function(event) {
-      
-      // 카메라 입력영상 스트림 생성
-      const mediaStream = await navigator.mediaDevices.getUserMedia({
-          audio: true,
-          video: true
-      });
-
-      // 실시간 영상 재생 처리: 첫번째 video태그에서 재생
-      $video_realtime.srcObject = mediaStream;
-      $video_realtime.onloadedmetadata = (event)=>{
-          $video_realtime.play();
-      }
-
-      // mediaRecorder객체(녹화기) 생성
-      mediaRecorder = new MediaRecorder(mediaStream);
-
-
-      // 녹화 데이터 입력 이벤트 처리
-      mediaRecorder.ondataavailable = (event)=>{
-          // 녹화 데이터(Blob)가 들어올 때마다 배열에 담아두기
-          arrVideoData.push(event.data);
-      }
-
-
-      // 녹화 종료 이벤트 처리
-      mediaRecorder.onstop = (event)=>{
-          // 배열에 담아둔 녹화 데이터들을 통합한 Blob객체 생성
-          const videoBlob = new Blob(arrVideoData);
-
-          // BlobURL(ObjectURL) 생성
-          const blobURL = window.URL.createObjectURL(videoBlob);
-          
-          // 녹화된 영상 재생: 두번째 video태그에서 재생
-          $video_record.src = blobURL;
-          $video_record.play();
-          
-          // 기존 녹화 데이터 제거
-          arrVideoData.splice(0);
-          
-      }
-
-      // 녹화 시작!
-      mediaRecorder.start();
-  }
-
-
-  // 종료 버튼 이벤트 처리
-  $btn_stop.onclick = (event)=>{
-      // 녹화 종료!
-      mediaRecorder.stop();
-  }
-
-</script>
-</html>
-
-*/
