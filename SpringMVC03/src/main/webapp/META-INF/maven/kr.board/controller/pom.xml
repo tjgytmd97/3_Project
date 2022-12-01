@@ -152,6 +152,12 @@
       
       <!--오라클 라이브러리 넣었는데 안될경우에는 ojdbc6.jar 직접  web-inf/lib에 넣어준다.  -->
       
+      <!-- json파일 관련  -->
+      <dependency>
+	<groupId>com.googlecode.json-simple</groupId>
+	<artifactId>json-simple</artifactId>
+	<version>1.1</version>
+</dependency>
       
       <!--ajax가 json형식을 이용할수 잇도록 하는 라이브러리 jackson  -->
       <dependency>
