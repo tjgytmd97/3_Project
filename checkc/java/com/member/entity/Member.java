@@ -8,6 +8,13 @@ public class Member {
 	private String m_car;
 	private String m_address; 
 	private String m_tel;
+	private int m_emergency;
+	public int getM_emergency() {
+		return m_emergency;
+	}
+	public void setM_emergency(int m_emergency) {
+		this.m_emergency = m_emergency;
+	}
 	public int getM_no() {
 		return m_no;
 	}
