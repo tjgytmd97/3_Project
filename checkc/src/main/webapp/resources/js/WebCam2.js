@@ -97,7 +97,7 @@ const $btn_stop = document.querySelector("#btn_stop");
 */
 //반복문 
 
-
+let mp3state ="";
 
 function sleep(ms) {
     return new Promise((r) => setTimeout(r, ms));
@@ -118,10 +118,10 @@ window.onload = async function () { //비동기 위해 async 와 await 사용, �
         await sleep(10)
         playRecording()
         await sleep(10)
+    	//gomp3page()
     
     }
 }
-
 
 
 // 영상 서버로 보내기 ajax 이용
@@ -161,9 +161,10 @@ var newfilename = title+dateString+timeString;
         success: function (data, textStatus) { //성공시 넘어온 데이터를 받는다.
             if (data != null) { //성공시 받아온 데이터가 있다면
                 console.log("동영상 서버 전송 성공");
-                //console.log(data) //서버에서 받아온 응답 데이터 출력
-                //setUsdaterResponse(data);  //데이터 처리
-                //send(a);
+                
+                mp3state=data
+                gomp3page()
+                
             }
         },
         error: function (errorMessage) { //실패시 호출
@@ -174,6 +175,17 @@ var newfilename = title+dateString+timeString;
         console.log("영상 전송 HTTP 요청이 성공하였습니다.");
         console.log(data);
     });
+   
+}
+
+function gomp3page(){
+	console.log("mp3state : "+mp3state)
+	 
+    if(mp3state ==="gomp3"){
+    	console.log("mp3 재생으로 이동")
+    	window.location.replace("http://localhost:8085/controller/resources/html/alarm_play.html");
+    	mp3state = "";
+    }
 }
 
 let latitude = 0;

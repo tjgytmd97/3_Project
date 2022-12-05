@@ -5,19 +5,43 @@
 <title>Insert title here</title>
 </head>
 <body>
-<html>
 
-<head></head>
 
-<body>
+<head>
+<!--페이지 3초뒤 이동 
+<meta http-equiv="refresh" content="3;url=http://localhost:8085/controller/memberLogin.do" /> 
+ -->
+ 
+ 
+<script>
+function sleep(ms) {
+    return new Promise((r) => setTimeout(r, ms));
+    console.log(`sleep for ${ms}ms`);
+}
+
+async function back(){
+
+	 await sleep(3000)
+     //history.go(-1); // 방법1
+     
+	 location.href="http://localhost:8085/controller/index.jsp";
+
+    
+
+}
+
+</script>
+</head>
+
+<body  onload ="back()">
 
 오디오 재생 테스트 페이지
 
- <iframe src="resources\mp3\silence.mp3" allow="autoplay" id="audio" style="display:none"></iframe>
+ <!-- <iframe src="resources\mp3\silence.mp3" allow="autoplay" id="audio" style="display:none"></iframe>
+ -->
 
 
-
-<audio id="audio" autoplay loop controls>
+<audio id="audio" autoplay controls>
 
 <source src="..\mp3\alarm_3.mp3">
 
@@ -27,8 +51,4 @@
 
 </body>
 
-</html>
-
- 
-</body>
 </html>
