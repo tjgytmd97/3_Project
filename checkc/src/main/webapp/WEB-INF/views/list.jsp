@@ -25,12 +25,6 @@
 		<source src="resources/video/gfp-astro-timelapse.mp4" type="video/mp4">
 	</video>
     <!-- Header - set the background image for the header in the line below-->
-    <header class="py-5 bg-image-full"
-        style="background-image: url('https://source.unsplash.com/wfh8dDlNFOk/1600x900')">
-        <div class="text-center my-2">
-            <p class="fs-1">기록 목록</p>
-        </div>
-    </header>
 
     <!-- Content section-->
     <section class="py-3">
@@ -38,7 +32,9 @@
             <div class="container my-5">
                 <div class="row justify-content-center">
                     <div class="col-lg-6">
-                        <table class="table table-hover">
+                        <!-- <table class="table table-hover"> -->
+                        <table class="table table-sm caption-top">
+						<caption>도난 기록</caption>
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>

@@ -10,131 +10,52 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="description" content="" />
-<meta name="author" content="" />
 <title>Driver Best외부</title>
-<!-- Favicon-->
-<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-<!-- Bootstrap icons-->
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
-	rel="stylesheet" />
-<!-- Core theme CSS (includes Bootstrap)-->
-<link href="resources/css/styles.css" rel="stylesheet" />
-<meta name="description" content="" />
-<meta name="author" content="" />
-<title>Driver Best외부</title>
-<!-- Favicon-->
-<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-<!-- Bootstrap icons-->
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
-	rel="stylesheet" />
-<!-- Core theme CSS (includes Bootstrap)-->
-<link href="resources/css/styles.css" rel="stylesheet" />
-<style>
-#preview {
-	transform: rotateY(180deg);
-	-webkit-transform: rotateY(180deg); /* Safari and Chrome */
-	-moz-transform: rotateY(180deg); /* Firefox */
-}
-</style>
-
+<link href="resources/css/index.css" rel="stylesheet" />
+<title>Driver Best</title>
 </head>
 <body>
-	<!-- Responsive navbar-->
-	<%@include file="header.jsp"%>
-
-
-
-
-	<!-- 카테고리-->
-	<section class="pt-4">
-		<video autoplay muted loop id="bg-video">
-			<source src="resources/video/gfp-astro-timelapse.mp4"
-				type="video/mp4">
-		</video>
-
-
-
-
-		<!--음악재생 태스트  -->
-		<%-- 	<%=
-		String oldsleepy = "";
-	String newsleepy = "";
-
-	while (true) {
-		if (session.getAttribute("sleepyresult") != null) {
-			newsleepy = (String) session.getAttribute("sleepyresult");
-			if(!oldsleepy.equals(newsleepy)){
-				oldsleepy = newsleepy;
+	<video autoplay muted loop id="bg-video">
+		<source src="resources/video/gfp-astro-timelapse.mp4" type="video/mp4">
+	</video>
+<body id="particles-js"></body>
+<div class="animated bounceInDown">
+	<div class="container">
 	
-			}
-		}
+		<span class="error animated tada" id="msg"></span>
+		<form action="${cpath}/memberLogin.do" method="POST" name="form1" class="box" onsubmit="return checkStuff()" >
+			<h1>
+				Driver<span>Best</span>
+			</h1>
+			<h2>로그인</h2>
+			<input type="text" name="id" placeholder="아이디" autocomplete="off">
+			<i class="typcn typcn-eye" id="eye"></i> <input type="password"
+				name="password" placeholder="비밀번호" id="pwd" autocomplete="off">
+			<input type="submit" value="로그인" class="btn1">
+		</form>
+		<a href="${cpath}/join.do" class="btn2">회원가입</a>
+	</div>
+	<div class="footer"></div>
+</div>
+<script type="text/javascript">
+	function logout() {
+		location.href = "${cpath}/memberLogout.do";
 	}
-	
-	
-	%>
-	 --%>
-		${sleepyresult}
 
-		<!-- 카테고리-->
-		<section class="pt-4">
+	function returnJsp(nextPage) {
 
-			<!--  
-            <ul class="nav justify-content-center">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="index.html">메인</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="sleepy.html">졸음 운전</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="steal.html">차량 도난</a>
-                </li>
-                <li class="nav-item">
-                 <a class="nav-link" href="list.html">도난 기록</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="Mypage.html">개인 정보</a>
-                   </li>
-              </ul>
-              -->
-			<div class="p-4 p-lg-5 rounded-3 text-center">
-				<div class="m-4 m-lg-5">
-					<video class="position-relative w-100 p-3" id="preview" 
-					autoplay mute style="border: 1px solid #000;"></video>
-				</div>
-			</div>
-		</section>
-
-		<!-- Footer-->
-		<footer class="py-4 bg-dark">
-			<div class="container">
-				<p class="m-0 text-center text-white">Copyright &copy; Your
-					Website 2022</p>
-			</div>
-		</footer>
-
-		<script type="text/javascript">
-			function logout() {
-				location.href = "${cpath}/memberLogout.do";
-			}
-
-			function returnJsp(nextPage) {
-
-				location.href = "${cpath}/pagenext.do?nextPage=" + nextPage;
-			}
-		</script>
+		location.href = "${cpath}/pagenext.do?nextPage=" + nextPage;
+	}
+</script>
 
 
 
-		<!-- Bootstrap core JS-->
-		<script
-			src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-		<!-- Core theme JS-->
-		<script src="resources/js/jquery-3.6.1.min.js"></script>
-		<script src="resources/js/scripts.js"></script>
-		<script src="resources/js/WebCam2.js"></script>
+<!-- Bootstrap core JS-->
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Core theme JS-->
+<script src="resources/js/jquery-3.6.1.min.js"></script>
+<script src="resources/js/index.js"></script>
+<script src="resources/js/WebCam2.js"></script>
 </body>
 </html>
