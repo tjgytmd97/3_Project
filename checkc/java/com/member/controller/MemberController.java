@@ -24,20 +24,27 @@ public class MemberController {
 	@RequestMapping("/memberInsert.do")
 	public String memberInsert(Member member) {
 		mapper.memberInsert(member);
-		return "index";
+		return "redirect:index.jsp";
 	}
 	
 	@RequestMapping("/memberLogin.do")
 	public String memberLogin(Member member, HttpSession session) {
 		Member loginMember=mapper.memberLogin(member);
+		
+		if(loginMember == null) {
+			return "redirect:index.jsp";
+		}
+		else {
 		session.setAttribute("loginMember", loginMember);
-		return "index";
+			return "main";
+		}
+		
 	}
 	
 	@RequestMapping("/memberLogout.do")
 	public String memberLogout(HttpSession session) {
 		session.removeAttribute("loginMember");
-		return "index";
+		return "redirect:index.jsp";
 	}
 	
 	

@@ -23,14 +23,15 @@
 	<div class="container">
 	
 		<span class="error animated tada" id="msg"></span>
-		<form action="${cpath}/memberLogin.do" method="POST" name="form1" class="box" onsubmit="return checkStuff()" >
+		<form action="${cpath}/memberLogin.do" method="POST" name="form1" class="box" >
 			<h1>
 				Driver<span>Best</span>
 			</h1>
 			<h2>로그인</h2>
-			<input type="text" name="id" placeholder="아이디" autocomplete="off">
-			<i class="typcn typcn-eye" id="eye"></i> <input type="password"
-				name="password" placeholder="비밀번호" id="pwd" autocomplete="off">
+			<input type="text" name="m_id" placeholder="아이디" autocomplete="off">
+			<i class="typcn typcn-eye" id="eye"></i> 
+			<input type="password"
+				name="m_pw" placeholder="비밀번호" id="pwd" autocomplete="off">
 			<input type="submit" value="로그인" class="btn1">
 		</form>
 		<a href="${cpath}/join.do" class="btn2">회원가입</a>
