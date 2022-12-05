@@ -21,23 +21,9 @@
 
 <body>
   <!-- Responsive navbar-->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container px-lg-5">
-      <a class="navbar-brand" href="#!">Driver Best</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
-          class="navbar-toggler-icon"></span></button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
-          <li class="nav-item"><button type="button" class="btn btn-dark" data-bs-toggle="modal"
-              data-bs-target="#exampleModal">로그인</button></li>
-          <li class="nav-item"><button type="button" class="btn btn-dark" data-bs-toggle="modal"
-              data-bs-target="#exampleModal2">회원가입</button></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+  
+   <%@include file ="../../header.jsp" %>
+  
 
   <!-- Header - set the background image for the header in the line below-->
   <header style="background-image: url('https://source.unsplash.com/wfh8dDlNFOk/1600x900')">
@@ -74,18 +60,22 @@
           <label for="exampleInputEmail1" class="form-label">주소</label>
           <input type="text" name="m_address" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
         </div>
-       
+        <div class="form-group">
+          <label for="exampleInputEmail1" class="form-label">비상연락망</label>
+          <input type="text" name="m_emergency" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
         </div>
-        <div class="d-grid gap-2">
+         
         
         <!-- 자바스크립트 녹화랑 연동하기위해 가입하기 버튼 아이디 따로 만들어서 스타일 적용, -->
+        <div class="d-grid gap-2">
           <button class="btn btn-primary btn-lg" type="submit">가입하기</button>
           <button class="btn btn-primary btn-lg" type="button" onclick="goIndex()">취소</button>
         </div>
-
-
-      </form>
-    </div>
+        
+        
+        </form>
+        </div>
+ 
   </section>
 
   <!-- Content section-->

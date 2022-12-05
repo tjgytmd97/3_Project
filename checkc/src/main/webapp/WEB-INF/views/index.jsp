@@ -59,7 +59,7 @@
                    </li>
               </ul>
               -->
-		<div class="p-4 p-lg-5 bg-light rounded-3 text-center">
+		<div class="p-4 p-lg-5 rounded-3 text-center">
 			<div class="m-4 m-lg-5">
 				<video class="position-relative w-100 p-3" id="preview" autoplay
 					mute style="border: 1px solid #000;"></video>

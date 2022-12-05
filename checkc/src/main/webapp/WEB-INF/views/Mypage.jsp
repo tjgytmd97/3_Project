@@ -36,42 +36,106 @@
 	</header>
 
 	<!-- Content section-->
-	<section class="py-3">
-		<!-- Content IMG section-->
-		<div class="container my-4">
-			<div class="text-center">
-				<img class="rounded" src="/오해원.jpg" alt="얼굴 이미지"
-					style="width: 15em;" />
-			</div>
-		</div>
-	</section>
+
 	<!-- Content section-->
 	<section class="py-3">
-		<form>
+		
 			<div class="container my-5">
 				<div class="row justify-content-center">
 					<div class="col-lg-6">
+					<form action="${cpath}/memberUpdate.do" method="post">
+						<input type="hidden" name="m_no" value="${loginMember.m_no}">
+						
+						
+						
 						<table class="table caption-top">
 							<thead>
 								<tr>
-									<th scope="col">#</th>
-									<th scope="col">비상연락망</th>
+									<th scope="col">개인정보 수정</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr>
-									<th scope="row">1</th>
-									<th><input class="p-1 flex-fill bd-highlight"
-										type="phonenum" class="form-control" id=""
-										placeholder="전화번호submit"> <svg
+									<td scope="row">비밀번호</td>
+									<td><input class="p-1 flex-fill bd-highlight"
+										type="password" class="form-control" name="m_pw"
+										placeholder="${loginMember.m_pw}"></td>
+								</tr>
+								
+								
+								<tr>
+									<td scope="row">이름</td>
+									<td><input class="p-1 flex-fill bd-highlight"
+										type="text" class="form-control" name="m_name"
+										placeholder="${loginMember.m_name}"></td>
+								</tr>
+								
+								
+								<tr>
+									<td scope="row">차량번호</td>
+									<td><input class="p-1 flex-fill bd-highlight"
+										type="text" class="form-control" name="m_car"
+										placeholder="${loginMember.m_car}"></td>
+								</tr>
+								
+								<tr>
+									<td scope="row">주소</td>
+									<td><input class="p-1 flex-fill bd-highlight"
+										type="text" class="form-control" name="m_address"
+										placeholder="${loginMember.m_address}"></td>
+								</tr>
+								
+								
+								
+								
+								<tr>
+									<td scope="row">전화번호</td>
+									<td><input class="p-1 flex-fill bd-highlight"
+										type="text" class="form-control" name="m_tel"
+										placeholder="${loginMember.m_tel}"></td>
+								</tr>
+								
+									
+							
+								<tr>
+									<td scope="row">비상연락망</td>
+									<td><input class="p-1 flex-fill bd-highlight"
+										type="text" class="form-control" name="m_emergency"
+										placeholder="${loginMember.m_emergency}"></td>
+								
+									
+								</tr>
+								
+							</tbody>
+						</table>
+						
+							<div>
+    							<button type="submit" class="btn btn-outline-secondary" 
+								style="float: right;">개인정보수정완료</button>
+    						</div>
+						
+						</form>
+						
+						
+									
+							
+						
+    				
+    				<br><br>
+    								<!-- 삭제 아이콘
+										
+										 <svg
 											class="p-2 flex-fill bd-highlight bi bi-trash3"
 											xmlns="http://www.w3.org/2000/svg" fill="currentColor"
 											viewBox="0 0 16 16" height="2em" style="float: right">
                                             <path
 												d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z" />
-                                        </svg></th>
-								</tr>
-								<tr>
+                                        </svg> -->
+    	
+    	
+    	
+    	
+							<!-- 	<tr>
 									<th scope="row">2</th>
 									<th><svg xmlns="http://www.w3.org/2000/svg" width="16"
 											height="16" fill="currentColor" class="bi bi-plus-lg"
@@ -88,24 +152,16 @@
                                             <path fill-rule="evenodd"
 												d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
                                         </svg></th>
-								</tr>
-							</tbody>
-						</table>
-						<table class="table caption-top">
-							<thead>
-								<tr>
-									<th scope="col">집 주소</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<th><input type="address" class="form-control" id=""
-										placeholder="집주소submit"></th>
-								</tr>
-							</tbody>
-						</table>
-
-						<div class="p-4 p-lg-5 bg-light rounded-3 text-center">
+								</tr> -->
+						
+						
+						
+						
+					
+						
+						
+						
+						<div class="p-4 p-lg-5 rounded-3 text-center">
 							<div class="m-4 m-lg-5">
 								<video class="position-relative w-100 p-3" id="preview" autoplay
 									mute style="border: 1px solid #ddd;"></video>
@@ -115,12 +171,12 @@
 								class="btn btn-outline-secondary">영상을 서버에 보내기</button>
 
 
-							<button type="button" class="btn btn-outline-secondary" disabled
-								style="float: right;">개인정보수정완료</button>
+							
 						</div>
 					</div>
 				</div>
-		</form>
+				</div>
+		
 	</section>
 	<br>
 	<div class="row justify-content-center">
@@ -128,6 +184,7 @@
 			<a href="list.html" class="btn btn-secondary disabled" tabindex="-1"
 				role="button" aria-disabled="true">기록목록</a>
 		</div>
+	</div>
 
 		<section class="py-5">
 			<div class="container my-5"></div>
