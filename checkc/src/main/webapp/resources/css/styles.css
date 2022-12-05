@@ -82,7 +82,7 @@ body {
   font-size: var(--bs-body-font-size);
   font-weight: var(--bs-body-font-weight);
   line-height: var(--bs-body-line-height);
-  color: var(--bs-body-color);
+  color: #fff;
   text-align: var(--bs-body-text-align);
   background-color: #edf2f4;
   -webkit-text-size-adjust: 100%;
@@ -308,9 +308,10 @@ table {
 
 caption {
   padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  color: #6c757d;
-  text-align: left;
+  padding-bottom: 1rem;
+  color: white;
+  text-align: center;
+  font-size:2em;
 }
 
 th {
@@ -1967,7 +1968,7 @@ progress {
   --bs-table-hover-bg: rgba(0, 0, 0, 0.075);
   width: 100%;
   margin-bottom: 1rem;
-  color: #212529;
+  color: white;
   vertical-align: top;
   border-color: #dee2e6;
 }

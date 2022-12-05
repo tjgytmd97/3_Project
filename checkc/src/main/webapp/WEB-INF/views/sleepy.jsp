@@ -21,100 +21,115 @@
         <video autoplay muted loop id="bg-video">
 		<source src="resources/video/gfp-astro-timelapse.mp4" type="video/mp4">
 	</video>
-        <!-- Header - set the background image for the header in the line below-->
-        <header style="background-image: url('https://source.unsplash.com/wfh8dDlNFOk/1600x900')">
-            <div class="text-center my-5">
-                <p class="fs-1">졸음 방지 설정</p>
-            </div>
-        </header>
+
         
         <!-- Content section-->
-        <section class="py-3">
-          <form>
-            <div class="container my-5">
-                <div class="row justify-content-center">
-                    <div class="col-lg-6">
-                        <table class="table caption-top ">
-                            <thead>
-                              <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">선택</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr>
-                                <th scope="row">비상연락망</th>
-                                <td>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                        <label class="form-check-label" for="flexCheckDefault">
-                                          phone-one
-                                        </label>
-                                      </div>
-                                      <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                                        <label class="form-check-label" for="flexCheckChecked">
-                                          phone-two
-                                        </label>
-                                      </div>
-                                      <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                                        <label class="form-check-label" for="flexCheckChecked">
-                                          phone-three
-                                        </label>
-                                      </div>
-                                </td>
-                              </tr>
-                              <tr>
-                                <th scope="row">알림음</th>
-                                <td>
-                                    <select class="form-select" aria-label="Default select example">
-                                        <option selected>알림음 선택</option>
-                                        <option value="alarm1">삐용</option>
-                                        <option value="alarm2">에에에엥</option>
-                                        <option value="alarm3">야!!!!</option>
-                                      </select> 
-                                   
-                                      
-                                      
-                                      <form action="/file/alarm" method="post" enctype="multipart/form-data">
-	<p>
-		
-		   알림음을 직접 업로드 <input type="file" name="uploadFile" value = "" accept="audio/*" >
-	</p>
+	<section class="py-3">
+		<form>
+			<div class="container my-5">
+				<div class="row justify-content-center">
+					<div class="col-lg-6">
+						<table class="table table-sm caption-top">
+						<caption>졸음 운전</caption>
+							<thead>
+								<tr>
+									<th scope="col"></th>
+									<th scope="col">선택</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th scope="row">비상연락망</th>
+									<td>
+										<div class="form-check">
+											<input class="form-check-input" type="checkbox" value=""
+												id="flexCheckDefault"> <label
+												class="form-check-label" for="flexCheckDefault">
+												phone-one </label>
+										</div>
+										<div class="form-check">
+											<input class="form-check-input" type="checkbox" value=""
+												id="flexCheckChecked" checked> <label
+												class="form-check-label" for="flexCheckChecked">
+												phone-two </label>
+										</div>
+										<div class="form-check">
+											<input class="form-check-input" type="checkbox" value=""
+												id="flexCheckChecked" checked> <label
+												class="form-check-label" for="flexCheckChecked">
+												phone-three </label>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th scope="row">알림음</th>
+									<td><select class="form-select"
+										aria-label="Default select example">
+											<option selected>알림음 선택</option>
+											<option value="alarm1">삐용</option>
+											<option value="alarm2">에에에엥</option>
+											<option value="alarm3">야!!!!</option>
+									</select>
 
-	<p>
-		<input type="submit" value="제출">
-	</p>
-</form>
-                                      
-                                      
-                                      
-                                      
-				
-                                </td>
-                              </tr>
-                              <tr>
-                                <th scope="row">알림 시간</th>
-                                <td>
-                                    <select class="form-select" aria-label="Default select example">
-                                        <option selected>알림 시간 선택</option>
-                                        <option value="time1">2초</option>
-                                        <option value="time2">4초</option>
-                                        <option value="time3">6초</option>
-                                      </select> 
-                                </td>
-                              </tr>
-                            </tbody>
-                          </table>
-                          <button type="button" class="btn btn-outline-secondary" disabled style="float: right;">졸음운전수정완료</button>
-                    </div>
-                </div>
-            </div>
-          </form>
-        </section>
 
-        <!-- Content section-->
+
+										<form action="/file/alarm" method="post"
+											enctype="multipart/form-data">
+											<p>
+
+												알림음을 직접 업로드 <input type="file" name="uploadFile" value=""
+													accept="audio/*">
+											</p>
+
+											<p>
+												<input type="submit" value="제출">
+											</p>
+										</form></td>
+								</tr>
+								<tr>
+									<th scope="row">알림 시간</th>
+									<td><select class="form-select"
+										aria-label="Default select example">
+											<option selected>알림 시간 선택</option>
+											<option value="time1">2초</option>
+											<option value="time2">4초</option>
+											<option value="time3">6초</option>
+									</select></td>
+								</tr>
+							</tbody>
+						</table>
+
+						<button type="button" class="btn btn-secondary"
+							data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="float:right;">
+							졸음운전 수정완료</button>
+
+						<!-- 수정완료 Modal -->
+						<div class="modal fade" id="staticBackdrop"
+							data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+							aria-labelledby="staticBackdropLabel" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h1 class="modal-title fs-5" id="staticBackdropLabel"></h1>
+										<button type="button" class="btn-close"
+											data-bs-dismiss="modal" aria-label="Close"></button>
+									</div>
+									<div class="modal-body">수정이 완료되었습니다.</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary"
+											data-bs-dismiss="modal">확인</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- modal끝 -->
+					</div>
+				</div>
+			</div>
+		</form>
+	</section>
+
+	<!-- Content section-->
         <section class="py-5">
             <div class="container my-5">
                 

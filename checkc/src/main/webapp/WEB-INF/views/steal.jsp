@@ -22,19 +22,14 @@
          <video autoplay muted loop id="bg-video">
 		<source src="resources/video/gfp-astro-timelapse.mp4" type="video/mp4">
 	</video>
-        <!-- Header - set the background image for the header in the line below-->
-        <header style="background-image: url('https://source.unsplash.com/wfh8dDlNFOk/1600x900')">
-            <div class="text-center my-5">
-                <p class="fs-1">도난 설정</p>
-            </div>
-        </header>
         <!-- Content section-->
         <section class="py-3">
           <form>
             <div class="container my-5">
                 <div class="row justify-content-center">
                     <div class="col-lg-6">
-                        <table class="table caption-top ">
+                        <table class="table table-sm caption-top">
+						<caption>도난 방지</caption>
                             <thead>
                               <tr>
                                 <th scope="col">#</th>
@@ -78,8 +73,31 @@
                               </tr>
                             </tbody>
                           </table>
-                          <button type="button" class="btn btn-outline-secondary" disabled style="float: right;">차량도난수정완료</button>
-                    </div>
+<button type="button" class="btn btn-secondary"
+							data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="float:right;">
+							차량도난 수정완료</button>
+
+						<!-- 수정완료 Modal -->
+						<div class="modal fade" id="staticBackdrop"
+							data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+							aria-labelledby="staticBackdropLabel" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h1 class="modal-title fs-5" id="staticBackdropLabel"></h1>
+										<button type="button" class="btn-close"
+											data-bs-dismiss="modal" aria-label="Close"></button>
+									</div>
+									<div class="modal-body">수정이 완료되었습니다.</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary"
+											data-bs-dismiss="modal">확인</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- modal끝 -->                    
+					</div>
                 </div>
             </div>
           </form>

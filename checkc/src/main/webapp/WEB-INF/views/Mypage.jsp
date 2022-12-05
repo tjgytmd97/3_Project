@@ -27,13 +27,6 @@
 	<video autoplay muted loop id="bg-video">
 		<source src="resources/video/gfp-astro-timelapse.mp4" type="video/mp4">
 	</video>
-	<!-- Header - set the background image for the header in the line below-->
-	<header
-		style="background-image: url('https://source.unsplash.com/wfh8dDlNFOk/1600x900')">
-		<div class="text-center my-5">
-			<p class="fs-1">개인정보</p>
-		</div>
-	</header>
 
 	<!-- Content section-->
 
@@ -45,10 +38,9 @@
 					<div class="col-lg-6">
 					<form action="${cpath}/memberUpdate.do" method="post">
 						<input type="hidden" name="m_no" value="${loginMember.m_no}">
-						
-						
-						
-						<table class="table caption-top">
+
+						<table class="table table-sm caption-top">
+						<caption>개인 정보</caption>
 							<thead>
 								<tr>
 									<th scope="col">개인정보 수정</th>
@@ -110,8 +102,30 @@
 						</table>
 						
 							<div>
-    							<button type="submit" class="btn btn-outline-secondary" 
-								style="float: right;">개인정보수정완료</button>
+    							<button type="button" class="btn btn-secondary"
+							data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="float:right;">
+							수정완료</button>
+
+						<!-- 수정완료 Modal -->
+						<div class="modal fade" id="staticBackdrop"
+							data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+							aria-labelledby="staticBackdropLabel" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h1 class="modal-title fs-5" id="staticBackdropLabel"></h1>
+										<button type="button" class="btn-close"
+											data-bs-dismiss="modal" aria-label="Close"></button>
+									</div>
+									<div class="modal-body">수정이 완료되었습니다.</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary"
+											data-bs-dismiss="modal">확인</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- modal끝 -->
     						</div>
 						
 						</form>
@@ -126,7 +140,8 @@
 										
 										 <svg
 											class="p-2 flex-fill bd-highlight bi bi-trash3"
-											xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+											xmlns="http://www.w3.org/2
+00/svg" fill="currentColor"
 											viewBox="0 0 16 16" height="2em" style="float: right">
                                             <path
 												d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z" />
