@@ -31,6 +31,11 @@ public class HomeController {
 		
 	}
 	
+	@RequestMapping("/main")
+	public void main() {
+		
+	}
+	
 	}
 	
 
