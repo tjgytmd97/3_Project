@@ -30,7 +30,7 @@
 				<div class="row justify-content-center">
 					<div class="col-lg-6">
 						<table class="table table-sm caption-top">
-						<caption>졸음 운전</caption>
+						<caption>알림 설정</caption>
 							<thead>
 								<tr>
 									<th scope="col"></th>
@@ -38,29 +38,6 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<th scope="row">비상연락망</th>
-									<td>
-										<div class="form-check">
-											<input class="form-check-input" type="checkbox" value=""
-												id="flexCheckDefault"> <label
-												class="form-check-label" for="flexCheckDefault">
-												phone-one </label>
-										</div>
-										<div class="form-check">
-											<input class="form-check-input" type="checkbox" value=""
-												id="flexCheckChecked" checked> <label
-												class="form-check-label" for="flexCheckChecked">
-												phone-two </label>
-										</div>
-										<div class="form-check">
-											<input class="form-check-input" type="checkbox" value=""
-												id="flexCheckChecked" checked> <label
-												class="form-check-label" for="flexCheckChecked">
-												phone-three </label>
-										</div>
-									</td>
-								</tr>
 								<tr>
 									<th scope="row">알림음</th>
 									<td><select class="form-select"
@@ -101,7 +78,7 @@
 
 						<button type="button" class="btn btn-secondary"
 							data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="float:right;">
-							졸음운전 수정완료</button>
+							알림 수정</button>
 
 						<!-- 수정완료 Modal -->
 						<div class="modal fade" id="staticBackdrop"
@@ -128,6 +105,11 @@
 			</div>
 		</form>
 	</section>
+	<!-- 기록목록 -->
+	<div class="row justify-content-center">
+            <div class="d-grid gap-2 col-6 mx-auto">
+                <a href="list.html" class="btn btn-secondary disabled" tabindex="-1" role="button" aria-disabled="true">기록목록</a>
+        </div>
 
 	<!-- Content section-->
         <section class="py-5">

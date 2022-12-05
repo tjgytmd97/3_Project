@@ -39,9 +39,7 @@
 
 						<c:otherwise>
 							<li class="nav-item"><button type="button"
-									class="btn btn-dark" onclick="returnJsp('sleepy')">졸음운전</button></li>
-							<li class="nav-item"><button type="button"
-									class="btn btn-dark" onclick="returnJsp('steal')">차량도난</button></li>
+									class="btn btn-dark" onclick="returnJsp('alarm')">알림설정</button></li>
 							<li class="nav-item"><button type="button"
 									class="btn btn-dark" onclick="returnJsp('list')">도난기록</button></li>
 							<li class="nav-item"><button type="button"

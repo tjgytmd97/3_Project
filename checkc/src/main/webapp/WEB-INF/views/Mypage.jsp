@@ -194,12 +194,6 @@
 		
 	</section>
 	<br>
-	<div class="row justify-content-center">
-		<div class="d-grid gap-2 col-6 mx-auto">
-			<a href="list.html" class="btn btn-secondary disabled" tabindex="-1"
-				role="button" aria-disabled="true">기록목록</a>
-		</div>
-	</div>
 
 		<section class="py-5">
 			<div class="container my-5"></div>

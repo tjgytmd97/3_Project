@@ -17,7 +17,11 @@
 <!--  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" /> -->
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="resources/css/styles.css" rel="stylesheet" />
-
+<script type="text/javascript">
+ function goIndex(){
+	 location.href="index.jsp";
+ }
+</script>
 </head>
 
 
@@ -30,10 +34,12 @@
 		<source src="resources/video/gfp-astro-timelapse.mp4" type="video/mp4">
 	</video>
 
+	<section class="py-5">
 	<section class="py-3">
+		<div class="container my-3"></div>
+	</section>
 		<div class="container">
-		<table class="table table-sm caption-top">
-						<caption>졸음 운전</caption></table>
+		
 			<form action="${cpath}/memberInsert.do" method="post">
 				<div class="form-group">
 					<label for="exampleInputEmail1" class="form-label">아이디</label> <input
@@ -71,10 +77,12 @@
 						id="exampleInputEmail1" aria-describedby="emailHelp">
 				</div>
 
-
+				<section class="py-5">
+		<div class="container my-1"></div>
+	</section>
 				<!-- 자바스크립트 녹화랑 연동하기위해 가입하기 버튼 아이디 따로 만들어서 스타일 적용, -->
 				<div class="d-grid gap-2 d-md-flex justify-content-md-end">
-					<button class="btn btn-primary me-md-2" type="submit">가입하기</button>
+					<button class="btn btn-primary" type="submit" >가입하기</button>
 					<button class="btn btn-primary" type="button"
 						onclick="goIndex()">취소</button>
 				</div>
