@@ -14,7 +14,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 		<div class="container px-lg-5">
 			<a class="navbar-brand" href="index.jsp">Driver Best</a>
 			<button class="navbar-toggler" type="button"

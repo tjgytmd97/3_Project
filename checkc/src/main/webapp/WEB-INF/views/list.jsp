@@ -7,6 +7,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>Full Width Pics - Start Bootstrap Template</title>
@@ -19,6 +20,10 @@
 <body>
     <!-- Responsive navbar-->
     <%@include file ="../../header.jsp" %>
+    
+    <video autoplay muted loop id="bg-video">
+		<source src="resources/video/gfp-astro-timelapse.mp4" type="video/mp4">
+	</video>
     <!-- Header - set the background image for the header in the line below-->
     <header class="py-5 bg-image-full"
         style="background-image: url('https://source.unsplash.com/wfh8dDlNFOk/1600x900')">
