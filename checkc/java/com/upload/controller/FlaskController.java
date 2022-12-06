@@ -18,14 +18,20 @@ import com.member.entity.Member;
 @Controller
 public class FlaskController {
 
-	@RequestMapping(value = "/upsleepy")
-	@ResponseBody
-	public void upsleepy(String deepresult, ModelAndView mv, HttpSession session, Member member) {
+	@RequestMapping(value = "/upsleepy")	
+	public String upsleepy(String deepresult, ModelAndView mv, HttpSession session, Member member) {
 
 		System.out.println("딥러닝 결과 : " + deepresult);
 		
 		FileController fc = new FileController();
-		fc.sleepystate(deepresult);
-
+		fc.sleepystate("gomp3");
+		
+		return "redirect:/resources/html/alarm_play.html";
+		
+	}
+	
+	public void upvideo(MultipartFile file) {
+		
+		
 	}
 }

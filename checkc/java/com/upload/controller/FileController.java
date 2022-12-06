@@ -49,6 +49,17 @@ public class FileController {
 		new_sleepy_satate = result;
 		
 	}
+	
+	@RequestMapping("/wantsleepy")
+	@ResponseBody
+	public String wantsleepy(){
+		
+		if(new_sleepy_satate.equals("gomp3"))
+			new_sleepy_satate="";
+			return "gomp3";
+		
+		
+	}
 
 //이 경로는 POST방식으로만 호출이 가능 (파일 등록)
 
@@ -59,6 +70,8 @@ public class FileController {
 	// public ModelAndView uploadForm(MultipartFile file, ModelAndView mv) {
 	public String uploadForm(MultipartFile file, ModelAndView mv, HttpSession session, Member member) {
 
+		
+		
 		String vidpath = "\\video"; // 업로드 경로에 비디오 폴더 붙여서 넣기
 
 		if (session.getAttribute("loginMember") != null) {

@@ -118,6 +118,7 @@ window.onload = async function () { //비동기 위해 async 와 await 사용, �
         await sleep(10)
         playRecording()
         await sleep(10)
+    	wantsleepy()
     	//gomp3page()
     
     }
@@ -153,17 +154,20 @@ var newfilename = title+dateString+timeString;
     console.log("test!!!!!!")
     
     $.ajax({
-        url: "http://localhost:8085/controller/file/checkuploadvideo", //데이터 보낼  url 입력
+        //url: "http://localhost:8085/controller/file/checkuploadvideo", //데이터 보낼  url 입력
+        url: "http://127.0.0.1:5000/fileUpload", //데이터 보낼  url 입력
         type: "POST",
         contentType: false, // 이 옵션과 아래옵션 모두 false로 해놔야 전송 가능  false 로 선언 시 content-type 헤더가 multipart/form-data로 전송되게 함
         processData: false, // false로 선언 시 formData를 string으로 변환하지 않음
         data: fd, //전송할 데이터가 담긴 변수 변수
-        success: function (data, textStatus) { //성공시 넘어온 데이터를 받는다.
+        success: function (data, textStatus , jqXHR) { //성공시 넘어온 데이터를 받는다.
             if (data != null) { //성공시 받아온 데이터가 있다면
-                console.log("동영상 서버 전송 성공");
-                
+        	//if (textStatus != null) { //성공시 받아온 데이터가 있다면
+                console.log("동영상 서버 전송 성공 :" +textStatus);
+                console.log("jqXHR"+jqXHR)
+                console.log("data"+data);
                 mp3state=data
-                gomp3page()
+                
                 
             }
         },
@@ -247,142 +251,19 @@ function gpsloc() {
     }
 }
 
-
-/*
-function sendgps(latitude,longitude,currntspeed) {  //sendAvi = 서버로 보내는메서드
-    //if (blob == null) return; //데이터 없으면 반환
-    //현재시간을 이용해 파일이름 만들기
-   
-	
-	//let filename = newfilename + ".avi";
-    let tempgps =[latitude,longitude,currntspeed]
-    
-    for(let i=0;i<tempgps.lenth;i++){
-    	if(gps[i]=null){
-    		tempgps[i]=0;
-    	}
-    	console.log(tempgps[i])
+function wantsleepy(){
+$.ajax({
+    url: "http://localhost:8085/controller/file/wantsleepy",
+    dataType: "string" ,
+    success: function(resultData) {
+    	 if (data != null) { //성공시 받아온 데이터가 있다면
+             console.log("딥러닝 판정 성공!!");
+             
+         }
+    },
+    error: function(jqXHR, textStatus, errorThrown) {
+        // 에러 로그는 아래처럼 확인해볼 수 있다. 
+      console.log("딥러닝 에러 업로드 에러\ncode : " + jqXHR.status + "\nerror message : " + jqXHR.responseText);
     }
-    
-  
-    $.ajax({
-        url: "http://localhost:8085/controller/gps/insert", //데이터 보낼  url 입력
-        type: "POST",
-        traditional : true,
-         data: tempgps, //전송할 데이터가 담긴 변수 변수
-        success: function (data, textStatus) { //성공시 넘어온 데이터를 받는다.
-            if (data != null) { //성공시 받아온 데이터가 있다면
-                console.log("gps 서버 전송 성공");
-                //setUsdaterResponse(data);  //데이터 처리
-                //send(a);
-            }
-        },
-        error: function (errorMessage) { //실패시 호출
-            // setUserResponse("");
-            console.log("gps 서버 전송 실패" + errorMessage);
-        },
-    }).done(function (data) { // HTTP 요청이 성공하면 요청한 데이터가 done() 메소드로 전달됨.
-       });
+});
 }
-*/
-/*
-sleep(10)    
-.then(() =>   videoStart())
-.then(console.log("videoStart!"))
-.then(() =>   sleep(5000))
-.then(() =>  stopRecording())
-.then(console.log("stopRecording!"))
-*/
-
-
-/*
-
-//===============샘플코드----------------------
-
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>카메라 영상 녹화</title>
-</head>
-<body>
-  <button id="btn_start">시작</button>
-  <button id="btn_stop">정지</button>
-  <br><br>
-  <video id="video_realtime" controls>실시간 영상 재생용</video>
-  <video id="video_record" controls>녹화된 영상 재생용</video>
-</body>
-
-<script>
-  // video, button 엘리먼트 취득
-  const $video_realtime = document.querySelector("#video_realtime");
-  const $video_record = document.querySelector("#video_record");
-  const $btn_start = document.querySelector("#btn_start");
-  const $btn_stop = document.querySelector("#btn_stop");
-
-  // MediaRecorder(녹화기) 변수 선언
-  let mediaRecorder = null;
-
-  // 영상 데이터를 담아줄 배열 선언
-  const arrVideoData = [];
-  
-
-  // 시작 버튼 이벤트 처리
-  $btn_start.onclick = async function(event) {
-      
-      // 카메라 입력영상 스트림 생성
-      const mediaStream = await navigator.mediaDevices.getUserMedia({
-          audio: true,
-          video: true
-      });
-
-      // 실시간 영상 재생 처리: 첫번째 video태그에서 재생
-      $video_realtime.srcObject = mediaStream;
-      $video_realtime.onloadedmetadata = (event)=>{
-          $video_realtime.play();
-      }
-
-      // mediaRecorder객체(녹화기) 생성
-      mediaRecorder = new MediaRecorder(mediaStream);
-
-
-      // 녹화 데이터 입력 이벤트 처리
-      mediaRecorder.ondataavailable = (event)=>{
-          // 녹화 데이터(Blob)가 들어올 때마다 배열에 담아두기
-          arrVideoData.push(event.data);
-      }
-
-
-      // 녹화 종료 이벤트 처리
-      mediaRecorder.onstop = (event)=>{
-          // 배열에 담아둔 녹화 데이터들을 통합한 Blob객체 생성
-          const videoBlob = new Blob(arrVideoData);
-
-          // BlobURL(ObjectURL) 생성
-          const blobURL = window.URL.createObjectURL(videoBlob);
-          
-          // 녹화된 영상 재생: 두번째 video태그에서 재생
-          $video_record.src = blobURL;
-          $video_record.play();
-          
-          // 기존 녹화 데이터 제거
-          arrVideoData.splice(0);
-          
-      }
-
-      // 녹화 시작!
-      mediaRecorder.start();
-  }
-
-
-  // 종료 버튼 이벤트 처리
-  $btn_stop.onclick = (event)=>{
-      // 녹화 종료!
-      mediaRecorder.stop();
-  }
-
-</script>
-</html>
-
-*/
