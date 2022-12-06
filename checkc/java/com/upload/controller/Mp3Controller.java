@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 //@RequestMapping("/mp3")
-public class Mp3Controller {
+public class Mp3Controller { //mp3 결과를 텍스트로 저장
 
 	// @RequestMapping("/readresult")
 	@ResponseBody
