@@ -67,14 +67,15 @@
 					<button type="button" class="btn-close" data-bs-dismiss="modal"
 						aria-label="Close"></button>
 				</div>
-				<div class="modal-body">
-					<form action="${cpath}/memberLogin.do" method="POST">
+
+				<form action="${cpath}/memberLogin.do" method="POST">
+					<div class="modal-body">
 						<input type="text" name="m_id" placeholder="아이디" class="in">
 						<input type="password" name="m_pw" placeholder="비밀번호" class="in">
-				</div>
-				<div class="modal-footer">
-					<button type="submit" class="btn btn-dark">로그인</button>
-				</div>
+					</div>
+					<div class="modal-footer">
+						<button type="submit" class="btn btn-dark">로그인</button>
+					</div>
 				</form>
 			</div>
 		</div>

@@ -351,6 +351,7 @@ textarea {
   font-family: revert;
   font-size: inherit;
   line-height: inherit;
+  opacity:0.3; 
 }
 
 button,
@@ -2424,6 +2425,7 @@ textarea.form-control-lg {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
+ opacity:0.3; 
 }
 @media (prefers-reduced-motion: reduce) {
   .form-select {
@@ -7567,6 +7569,7 @@ textarea.form-control-lg {
 
 .p-1 {
   padding: 0.25rem !important;
+  opacity:0.1; 
 }
 
 .p-2 {
