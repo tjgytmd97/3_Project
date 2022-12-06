@@ -72,12 +72,7 @@
 		<div class="container my-5"></div>
 	</section>
 	<!-- Footer-->
-	<footer class="py-4 bg-dark">
-		<div class="container">
-			<p class="m-0 text-center text-white">Copyright &copy; Your
-				Website 2022</p>
-		</div>
-	</footer>
+	<%@include file="../../footer.jsp"%>
 
 	<script type="text/javascript">
 		function logout() {

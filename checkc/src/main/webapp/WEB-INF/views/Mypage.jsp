@@ -51,7 +51,7 @@
 									<td scope="row">비밀번호</td>
 									<td><input class="p-1 flex-fill bd-highlight"
 										type="password" class="form-control" name="m_pw"
-										placeholder="${loginMember.m_pw}"></td>
+										value="${loginMember.m_pw}"></td>
 								</tr>
 								
 								
@@ -59,7 +59,7 @@
 									<td scope="row">이름</td>
 									<td><input class="p-1 flex-fill bd-highlight"
 										type="text" class="form-control" name="m_name"
-										placeholder="${loginMember.m_name}"></td>
+										value="${loginMember.m_name}"></td>
 								</tr>
 								
 								
@@ -67,14 +67,14 @@
 									<td scope="row">차량번호</td>
 									<td><input class="p-1 flex-fill bd-highlight"
 										type="text" class="form-control" name="m_car"
-										placeholder="${loginMember.m_car}"></td>
+										value="${loginMember.m_car}"></td>
 								</tr>
 								
 								<tr>
 									<td scope="row">주소</td>
 									<td><input class="p-1 flex-fill bd-highlight"
 										type="text" class="form-control" name="m_address"
-										placeholder="${loginMember.m_address}"></td>
+										value="${loginMember.m_address}"></td>
 								</tr>
 								
 								
@@ -84,7 +84,7 @@
 									<td scope="row">전화번호</td>
 									<td><input class="p-1 flex-fill bd-highlight"
 										type="text" class="form-control" name="m_tel"
-										placeholder="${loginMember.m_tel}"></td>
+										value="${loginMember.m_tel}"></td>
 								</tr>
 								
 									
@@ -93,7 +93,7 @@
 									<td scope="row">비상연락망</td>
 									<td><input class="p-1 flex-fill bd-highlight"
 										type="text" class="form-control" name="m_emergency"
-										placeholder="${loginMember.m_emergency}"></td>
+										value="${loginMember.m_emergency}"></td>
 								
 									
 								</tr>
@@ -183,7 +183,7 @@
 							</div>
 							<br> <br>
 							<button type="button" id="insertMembtn"
-								class="btn btn-outline-secondary">영상을 서버에 보내기</button>
+								class="btn btn-secondary">영상을 서버에 보내기</button>
 
 
 							
@@ -193,18 +193,9 @@
 				</div>
 		
 	</section>
-	<br>
 
-		<section class="py-5">
-			<div class="container my-5"></div>
-		</section>
 		<!-- Footer-->
-		<footer class="py-4 bg-dark">
-			<div class="container">
-				<p class="m-0 text-center text-white">Copyright &copy; Your
-					Website 2022</p>
-			</div>
-		</footer>
+		<%@include file="../../footer.jsp"%>
 		<!-- Bootstrap core JS-->
 		<script
 			src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

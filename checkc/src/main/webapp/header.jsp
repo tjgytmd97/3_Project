@@ -16,7 +16,10 @@
 <body>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 		<div class="container px-lg-5">
-			<a class="navbar-brand" href="${cpath}/main">Driver Best</a>
+			<a class="navbar-brand" href="${cpath}/main">
+			<h1>
+				Driver<span> Best</span>
+			</h1></a>
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
 				aria-controls="navbarSupportedContent" aria-expanded="false"
