@@ -47,17 +47,20 @@ public class FileController {
 	public void sleepystate(String result){
 		
 		new_sleepy_satate = result;
+		System.out.println(" 전역변수 변경 new_sleepy_satate :"+new_sleepy_satate);
+		
 		
 	}
 	
 	@RequestMapping("/wantsleepy")
 	@ResponseBody
-	public String wantsleepy(){
+	public String wantsleepy(){ //자바스크립트 딥러닝 판정 확인 메서드
 		
-		if(new_sleepy_satate.equals("gomp3"))
-			new_sleepy_satate="";
-			return "gomp3";
-		
+		if(new_sleepy_satate.equals("gomp3")) { // 딥러닝 판정 전역변수가 판정확인 되면 
+			new_sleepy_satate="";//초기화
+			return "gomp3";//mp3페이지로 가라는 데이터 전송
+		}
+		return "nosleepy";
 		
 	}
 

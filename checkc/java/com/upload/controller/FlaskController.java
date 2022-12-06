@@ -24,7 +24,7 @@ public class FlaskController {
 		System.out.println("딥러닝 결과 : " + deepresult);
 		
 		FileController fc = new FileController();
-		fc.sleepystate("gomp3");
+		fc.sleepystate("gomp3"); //전역변수 변경, db이용으로 바꿀것
 		
 		return "redirect:/resources/html/alarm_play.html";
 		

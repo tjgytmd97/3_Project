@@ -183,13 +183,10 @@ var newfilename = title+dateString+timeString;
 }
 
 function gomp3page(){
-	console.log("mp3state : "+mp3state)
-	 
-    if(mp3state ==="gomp3"){
-    	console.log("mp3 재생으로 이동")
-    	window.location.replace("http://localhost:8085/controller/resources/html/alarm_play.html");
+	
     	mp3state = "";
-    }
+    	window.location.replace("http://localhost:8085/controller/resources/html/alarm_play.html");
+    
 }
 
 let latitude = 0;
@@ -254,12 +251,16 @@ function gpsloc() {
 function wantsleepy(){
 $.ajax({
     url: "http://localhost:8085/controller/file/wantsleepy",
-    dataType: "string" ,
-    success: function(resultData) {
-    	 if (data != null) { //성공시 받아온 데이터가 있다면
-             console.log("딥러닝 판정 성공!!");
-             
+    success: function(data) {
+    	 if (data != null) { //성공시 받아온 데이터가 있다면    		
+    		 console.log("받은 데이터 : "+data)
+    		 if (data === "gomp3"){
+    			 gomp3page()
+    		 }
+    	  else{
+             console.log("딥러닝 판정 jsp 접속 성공, 딥러닝 판정 안됨");             
          }
+    	 }
     },
     error: function(jqXHR, textStatus, errorThrown) {
         // 에러 로그는 아래처럼 확인해볼 수 있다. 
