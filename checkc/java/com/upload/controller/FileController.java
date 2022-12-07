@@ -20,11 +20,14 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.member.entity.Member;
+import com.member.mapper.MemberMapper;
 
 @Controller
 @RequestMapping("/file")
 public class FileController {
 
+	@Autowired
+	private MemberMapper mapper;
 	
 	static String new_sleepy_satate="";
 	static String old_sleepy_satate="";
@@ -44,23 +47,26 @@ public class FileController {
 		return "";
 	}
 	
-	public void sleepystate(String result){
+	public void sleepystate(String result){//딥러닝 판정되면 해당 세션 아이디 sleepy 값 변경 매퍼 호출
 		
-		new_sleepy_satate = result;
-		System.out.println(" 전역변수 변경 new_sleepy_satate :"+new_sleepy_satate);
+		int m_no = Integer.parseInt(result);
+		System.out.println("딥러닝 변경 매퍼 호출, :" + m_no);
+		mapper.sleepyinsert(m_no);
+		System.out.println(" mysql sleepy 변경 , insert:"+m_no);
 		
 		
 	}
 	
 	@RequestMapping("/wantsleepy")
 	@ResponseBody
-	public String wantsleepy(){ //자바스크립트 딥러닝 판정 확인 메서드
+	public String wantsleepy(String memno){ //자바스크립트 딥러닝 판정 확인 메서드
+		System.out.println("filecontroller wantsleepy 메서드 진입, 자바스크립트가 보내준 세션아이디:"+memno);
 		
-		if(new_sleepy_satate.equals("gomp3")) { // 딥러닝 판정 전역변수가 판정확인 되면 
-			new_sleepy_satate="";//초기화
-			return "gomp3";//mp3페이지로 가라는 데이터 전송
-		}
-		return "nosleepy";
+		int m_no=Integer.valueOf(memno);
+		String result= mapper.sleepyselect(m_no);//맵퍼 검색, sleppy든 no 든  result에 담는다
+		mapper.sleepyinsert(m_no);
+		
+		return result;
 		
 	}
 

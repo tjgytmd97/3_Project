@@ -21,10 +21,10 @@ public class FlaskController {
 	@RequestMapping(value = "/upsleepy")	
 	public String upsleepy(String deepresult, ModelAndView mv, HttpSession session, Member member) {
 
-		System.out.println("딥러닝 결과 : " + deepresult);
+		System.out.println("딥러닝 결과 세션 아이디: " + deepresult);
 		
 		FileController fc = new FileController();
-		fc.sleepystate("gomp3"); //전역변수 변경, db이용으로 바꿀것
+		fc.sleepystate(deepresult); //세션 넘버 담아서동
 		
 		return "redirect:/resources/html/alarm_play.html";
 		

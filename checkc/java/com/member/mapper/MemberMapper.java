@@ -15,9 +15,10 @@ public interface MemberMapper {
 	public Member memberSelect(int m_no);
 
 	public void memberUpdate(Member member);
+
+	public void sleepyinsert(int m_no);
+
+	public void sleepydelete(int m_no);
 	
-	
-
-
-
+	public String sleepyselect(int m_no);
 }

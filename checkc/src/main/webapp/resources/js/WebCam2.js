@@ -225,7 +225,7 @@ function gpsloc() {
 
 function wantsleepy(){
 $.ajax({
-    url: "http://localhost:8085/controller/file/wantsleepy",
+    url: "http://localhost:8085/controller/file/wantsleepy?memno="+meberno,
     success: function(data) {
     	 if (data != null) { //성공시 받아온 데이터가 있다면    		
     		 console.log("받은 데이터 : "+data)
