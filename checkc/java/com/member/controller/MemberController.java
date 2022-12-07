@@ -25,7 +25,6 @@ public class MemberController {
 	public String memberInsert(Member member) {
 		mapper.memberInsert(member);
 		
-		
 		return "redirect:index.jsp";
 	}
 	

@@ -20,4 +20,6 @@
 <select id="memberSelect" parameterType="int" resultType="com.member.entity.Member">
 	select * from member where m_no=#{m_no}
 </select>
+
+
 </mapper>

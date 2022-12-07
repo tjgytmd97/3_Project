@@ -9,6 +9,8 @@ public class Member {
 	private String m_address; 
 	private String m_tel;
 	private int m_emergency;
+	private String m_sleep;
+	private String m_steal;
 	public int getM_emergency() {
 		return m_emergency;
 	}
@@ -57,5 +59,19 @@ public class Member {
 	public void setM_tel(String m_tel) {
 		this.m_tel = m_tel;
 	}
+	public String getM_sleep() {
+		return m_sleep;
+	}
+	public void setM_sleep(String m_sleep) {
+		this.m_sleep = m_sleep;
+	}
+	public String getM_steal() {
+		return m_steal;
+	}
+	public void setM_steal(String m_steal) {
+		this.m_steal = m_steal;
+	}
+	
+	
 	
 }
