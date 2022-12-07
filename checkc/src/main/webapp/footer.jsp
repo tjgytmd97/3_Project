@@ -12,9 +12,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<footer class="py-4 bg-dark">
+<footer>
 			<div class="container">
-				<p class="m-0 text-center text-white">Copyright &copy; Your Website 2022 | 개인정보처리방침 </p>
+				<p class="position-absolute bottom-0 start-50 translate-middle-x">개인정보처리방침 </p>
 
 			</div>
 		</footer>

@@ -17,9 +17,10 @@
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 		<div class="container px-lg-5">
 			<a class="navbar-brand" href="${cpath}/main">
-			<h1>
-				Driver<span> Best</span>
-			</h1></a>
+				<h1>
+					Driver<span> Best</span>
+				</h1>
+			</a>
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
 				aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -41,6 +42,8 @@
 						</c:when>
 
 						<c:otherwise>
+							<li class="nav-item"><button type="button"
+									class="btn btn-dark" onclick="returnJsp('main2')">도난</button></li>
 							<li class="nav-item"><button type="button"
 									class="btn btn-dark" onclick="returnJsp('alarm')">알림설정</button></li>
 							<li class="nav-item"><button type="button"

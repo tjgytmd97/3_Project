@@ -14,7 +14,6 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>Driver Best외부</title>
 <link href="resources/css/index.css" rel="stylesheet" />
-<title>Driver Best</title>
 </head>
 <body>
 	<video autoplay muted loop id="bg-video">

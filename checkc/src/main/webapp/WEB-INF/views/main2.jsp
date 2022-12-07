@@ -66,6 +66,7 @@
 					mute style="border: 1px solid #000;"></video>
 			</div>
 		</div>
+		</div>
 	</section>
 
 	<section class="py-5">
