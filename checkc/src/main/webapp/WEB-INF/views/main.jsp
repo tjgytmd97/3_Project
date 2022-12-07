@@ -8,7 +8,7 @@
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="" />
 <meta name="author" content="" />
 <title>Driver Best내부</title>
@@ -32,14 +32,15 @@
 <body>
 	<!-- Responsive navbar-->
 	<%@include file="../../header.jsp"%>
-	
 
-
+	<!--자바스클비트에서 세션값 가져오기위한 소스  -->
+	<input type="hidden" value="${loginMember.m_no}" id="loginuser">
 	<!-- 카테고리-->
 	<section class="pt-4">
-	<video autoplay muted loop id="bg-video">
-		<source src="resources/video/gfp-astro-timelapse.mp4" type="video/mp4">
-	</video>
+		<video autoplay muted loop id="bg-video">
+			<source src="resources/video/gfp-astro-timelapse.mp4"
+				type="video/mp4">
+		</video>
 		<!--  
             <ul class="nav justify-content-center">
                 <li class="nav-item">

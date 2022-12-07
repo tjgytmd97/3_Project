@@ -24,6 +24,8 @@ public class MemberController {
 	@RequestMapping("/memberInsert.do")
 	public String memberInsert(Member member) {
 		mapper.memberInsert(member);
+		
+		
 		return "redirect:index.jsp";
 	}
 	
@@ -60,6 +62,8 @@ public class MemberController {
 		return "Mypage";
 		
 	}
+	
+	
 	
 
 	

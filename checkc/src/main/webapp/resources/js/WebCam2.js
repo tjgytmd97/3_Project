@@ -10,6 +10,8 @@ let recorder; //녹화기 초기화용 변수
 let recordedChunks; //녹화영상 담을 저장공간 배열
 let videoBlob = null; // 비디오 url로 보낼때 쓸 blob
 let recordedVideoURL = null; //url 주소
+
+var meberno;  //세션 아이디값
 //functions
 function videoStart() {//화면 출력용 함수. 계속 일정하게 카메라 보이게 사용
     navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
@@ -66,36 +68,8 @@ function playRecording() { //기존의 녹화된영상을 웹에서 재생하는
 	    //서버 호출 함수
 	   	sendAvi(videoBlob);	   
 	    console.log("서버 전송 시작");
-/*
-    //const recordedBlob = new Blob(recordedChunks, { type: "video/mpeg" }); // 저장할 비디오 확장자 설정, 코덱처리가 들어갈수도 있을듯
-    const recordedBlob = new Blob(recordedChunks, { type:"video/webm" }); // 저장할 비디오 확장자 설정, 코덱처리가 들어갈수도 있을듯
-    recordingPlayer.src = URL.createObjectURL(recordedBlob);//blob 데이터를 url로 보내게 변경
-    */
-    //recordingPlayer.play();//녹화된 영상을 재생
-    /*
-    downloadButton.href = recordingPlayer.src;
-    downloadButton.download = `recording_${new Date()}.webm`;
-    */
-    //console.log(recordingPlayer.src);
 
 }
-
-//event 버튼 이벤트 비활성화
-/*
-recordButton.addEventListener("click",videoStart);
-stopButton.addEventListener("click",stopRecording);
-playButton.addEventListener("click",playRecording);
-
-*/
-
-//video, button 엘리먼트 취득
-/*
-const $video_realtime = document.querySelector("#video_realtime");
-const $video_record = document.querySelector("#video_record");
-const $btn_start = document.querySelector("#btn_start");
-const $btn_stop = document.querySelector("#btn_stop");
-*/
-//반복문 
 
 let mp3state ="";
 
@@ -112,6 +86,7 @@ window.onload = async function () { //비동기 위해 async 와 await 사용, �
 	
     while (true) {
     	videoready()
+    	read_member()
     	gpsloc() 
         await sleep(5000)
         stopRecording()
@@ -141,7 +116,7 @@ var minutes = ('0' + today.getMinutes()).slice(-2);
 var seconds = ('0' + today.getSeconds()).slice(-2); 
 var timeString = hours + '_' + minutes  + '_' + seconds;//시간포맷으로 변경
 var title = 'vid_';
-var newfilename = title+dateString+timeString;
+var newfilename = title+meberno+"_"+dateString+timeString;
 //var newfilename =title+ timeString;
     //let filename = newfilename + ".avi";
     let filename = newfilename + ".mp4";  //파일이름 처리. 확장자 붙이기
@@ -268,3 +243,15 @@ $.ajax({
     }
 });
 }
+
+
+//세션값 읽어오기
+function read_member(){
+//let m_no = ${loginMember.m_no}
+//let meberno = sessionStorage.getItem('oginMember.m_no');
+//var meberno= window.sessionStorage.getItem("loginuser") 
+meberno = document.getElementById('loginuser').value
+console.log("로그인 멤버 아이디 : " +meberno)
+
+}
+
