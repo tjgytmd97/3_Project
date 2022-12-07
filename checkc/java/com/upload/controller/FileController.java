@@ -47,27 +47,37 @@ public class FileController {
 		return "";
 	}
 	
-	public void sleepystate(String result){//딥러닝 판정되면 해당 세션 아이디 sleepy 값 변경 매퍼 호출
+	@RequestMapping("/sleepystate")
+	@ResponseBody
+	public String sleepystate(String deepresult){//딥러닝 판정되면 해당 세션 아이디 sleepy 값 변경 매퍼 호출
 		
-		int m_no = Integer.parseInt(result);
-		System.out.println("딥러닝 변경 매퍼 호출, :" + m_no);
+		int m_no = Integer.valueOf(deepresult);		
 		mapper.sleepyinsert(m_no);
-		System.out.println(" mysql sleepy 변경 , insert:"+m_no);
+		System.out.println("딥러닝 결과 졸음판정, insert:"+m_no);
 		
-		
+		return "";
 	}
 	
 	@RequestMapping("/wantsleepy")
 	@ResponseBody
 	public String wantsleepy(String memno){ //자바스크립트 딥러닝 판정 확인 메서드
-		System.out.println("filecontroller wantsleepy 메서드 진입, 자바스크립트가 보내준 세션아이디:"+memno);
-		
+		System.out.println("wantsleepy 메서드 진입, 자바스크립트가 보내준 세션아이디:"+memno);
+		if(!memno.equals("")||memno.isEmpty()||memno==null) {
+			
 		int m_no=Integer.valueOf(memno);
+		
 		String result= mapper.sleepyselect(m_no);//맵퍼 검색, sleppy든 no 든  result에 담는다
-		mapper.sleepyinsert(m_no);
+		System.out.println("맵퍼 검색 결과 : "+result);
+		mapper.sleepydelete(m_no);
+		String result2 = mapper.sleepyselect(m_no);
+		System.out.println("맵퍼 졸음변수 초기화 : "+result2);
 		
 		return result;
-		
+		}
+		else {
+			return "";
+		}
+			
 	}
 
 //이 경로는 POST방식으로만 호출이 가능 (파일 등록)

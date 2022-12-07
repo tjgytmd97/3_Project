@@ -229,7 +229,7 @@ $.ajax({
     success: function(data) {
     	 if (data != null) { //성공시 받아온 데이터가 있다면    		
     		 console.log("받은 데이터 : "+data)
-    		 if (data === "gomp3"){
+    		 if (data === "sleep"){
     			 gomp3page()
     		 }
     	  else{

@@ -22,11 +22,11 @@ public class FlaskController {
 	public String upsleepy(String deepresult, ModelAndView mv, HttpSession session, Member member) {
 
 		System.out.println("딥러닝 결과 세션 아이디: " + deepresult);
-		
+		int m_no=Integer.valueOf(deepresult);
 		FileController fc = new FileController();
-		fc.sleepystate(deepresult); //세션 넘버 담아서동
+		String str = fc.sleepystate(m_no); //세션 넘버 담아서동
 		
-		return "redirect:/resources/html/alarm_play.html";
+		return str;
 		
 	}
 	

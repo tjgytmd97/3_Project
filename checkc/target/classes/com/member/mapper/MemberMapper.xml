@@ -21,12 +21,10 @@
 	select * from member where m_no=#{m_no}
 </select>
 
-
 <update id="sleepyinsert" parameterType="int">
    update member set m_sleep='sleep' where m_no=#{m_no}
 </update>
-
-
+   
 <update id="sleepydelete" parameterType="int">
    update member set m_sleep='no' where m_no=#{m_no}
 </update>
