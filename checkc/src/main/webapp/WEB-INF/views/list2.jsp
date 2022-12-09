@@ -46,9 +46,9 @@
                             <tbody>
                                 <tr>
                                     <th scope="row">1</th>
-                                    <td>2022-11-11 03:28</td>
+                                    <td>2022-11-25 10:28</td>
                                     <td>
-                                        <a href="#" class="link-secondary">admin/영상1</a>
+                                        <a href="#" class="link-secondary">admin/영상6</a>
                                         <button type="button" class="btn btn-light" style="float: right">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                 fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
@@ -60,9 +60,9 @@
                                 </tr>
                                 <tr>
                                     <th scope="row">2</th>
-                                    <td>2022-11-13 11:49</td>
+                                    <td>2022-11-29 15:57</td>
                                     <td>
-                                        <a href="#" class="link-secondary">admin/영상2</a>
+                                        <a href="#" class="link-secondary">admin/영상7</a>
                                         <button type="button" class="btn btn-light" style="float: right">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                 fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
@@ -74,9 +74,9 @@
                                 </tr>
                                 <tr>
                                     <th scope="row">3</th>
-                                    <td>2022-11-17 02:56</td>
+                                    <td>2022-11-30 18:51</td>
                                     <td>
-                                        <a href="#" class="link-secondary">admin/영상3</a>
+                                        <a href="#" class="link-secondary">admin/영상8</a>
                                         <button type="button" class="btn btn-light" style="float: right">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                 fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
@@ -88,9 +88,9 @@
                                 </tr>
                                 <tr>
                                     <th scope="row">4</th>
-                                    <td>2022-11-22 11:23</td>
+                                    <td>2022-12-1 05:01</td>
                                     <td>
-                                        <a href="#" class="link-secondary">admin/영상4</a>
+                                        <a href="#" class="link-secondary">admin/영상9</a>
                                         <button type="button" class="btn btn-light" style="float: right">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                 fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
@@ -102,9 +102,9 @@
                                 </tr>
                                 <tr>
                                     <th scope="row">5</th>
-                                    <td>2022-11-23 23:42</td>
+                                    <td>2022-12-2 15:57</td>
                                     <td>
-                                        <a href="#" class="link-secondary">admin/영상5</a>
+                                        <a href="#" class="link-secondary">admin/영상10</a>
                                         <button type="button" class="btn btn-light" style="float: right">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                 fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
@@ -118,17 +118,18 @@
                         </table>
                         <nav aria-label="...">
                             <ul class="pagination justify-content-center">
+                       
+                                 <li class="page-item"><a class="page-link" href="${cpath}/list.do">1</a></li>
                                 <li class="page-item active" aria-current="page">
-                                    <span class="page-link">1</span>
+                                    <span class="page-link">2</span>
                                 </li>
-                                <li class="page-item"><a class="page-link" href="${cpath}/list2.do">2</a></li>
                                 <li class="page-item"><a class="page-link" href="${cpath}/list3.do">3</a></li>
                             </ul>
                         </nav>
                     </div>
                 </div>
             </div>
-           
+            
         </form>
     </section>
 

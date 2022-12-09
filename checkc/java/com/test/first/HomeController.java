@@ -31,6 +31,21 @@ public class HomeController {
 		
 	}
 	
+	@RequestMapping("/list.do")
+	public void list() {
+		
 	}
 	
+	@RequestMapping("/list2.do")
+	public void list2() {
+		
+	}
+	
+	
+
+	@RequestMapping("/list3.do")
+	public void list3() {
+		
+	}
+}
 
