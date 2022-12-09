@@ -88,7 +88,8 @@ window.onload = async function () { //비동기 위해 async 와 await 사용, �
     	videoready()
     	read_member()
     	gpsloc() 
-        await sleep(1000)    	
+        await sleep(1000) 
+    	/*
     	wantsleepy()
     	await sleep(1000)    	
     	wantsleepy()
@@ -98,6 +99,7 @@ window.onload = async function () { //비동기 위해 async 와 await 사용, �
     	wantsleepy()
     	await sleep(1000)    	
     	wantsleepy()
+    	*/
         stopRecording()
         await sleep(10)
         playRecording()
@@ -150,8 +152,7 @@ var newfilename = title+meberno+"_"+dateString+timeString;
                 console.log("동영상 서버 전송 성공 :" +textStatus);
                 console.log("jqXHR"+jqXHR)
                 console.log("data"+data);
-                mp3state=data
-                
+              
                 
             }
         },
