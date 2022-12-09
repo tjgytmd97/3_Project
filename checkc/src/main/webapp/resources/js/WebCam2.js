@@ -88,15 +88,24 @@ window.onload = async function () { //비동기 위해 async 와 await 사용, �
     	videoready()
     	read_member()
     	gpsloc() 
-        await sleep(5000)
+        await sleep(1000)    	
+    	wantsleepy()
+    	await sleep(1000)    	
+    	wantsleepy()
+    	await sleep(1000)    	
+    	wantsleepy()
+    	await sleep(1000)    	
+    	wantsleepy()
+    	await sleep(1000)    	
+    	wantsleepy()
         stopRecording()
         await sleep(10)
         playRecording()
-        await sleep(10)
-    	wantsleepy()
+        
     	//gomp3page()
     
     }
+	
 }
 
 
