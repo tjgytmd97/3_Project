@@ -34,4 +34,18 @@
 </select>
 
 
+
+<update id="theafinsert" parameterType="int">
+   update member set m_steal='theaf' where m_no=#{m_no}
+</update>
+   
+<update id="theafdelete" parameterType="int">
+   update member set m_steal='no' where m_no=#{m_no}
+</update>
+
+<select id="theafselect" parameterType="int" resultType="string">
+	select m_steal from member where m_no=#{m_no}
+</select>
+
+
 </mapper>

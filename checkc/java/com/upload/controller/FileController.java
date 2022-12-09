@@ -49,19 +49,27 @@ public class FileController {
 	
 	@RequestMapping("/sleepystate") //딥러닝 결과 판정되면 여기로 요청이 들어온다
 	@ResponseBody
-	public String sleepystate(String deepresult){//딥러닝 판정되면 해당 세션 아이디 sleepy 값 변경 매퍼 호출
-		
+	public String sleepystate(String deepresult){//딥러닝 판정되면 해당 세션 아이디 sleepy 값 변경 매퍼 호출		
 		int m_no = Integer.valueOf(deepresult);		
 		mapper.sleepyinsert(m_no); //딥러닝 판정시 db에 sleep 저장하는 매퍼 호출
-		System.out.println("딥러닝 결과 졸음판정, insert:"+m_no);
-		
+		System.out.println("졸음운전 판정, 회원넘버 :"+m_no);		
+		return "";
+	}
+	
+	
+	@RequestMapping("/theafstate") //딥러닝 결과 판정되면 여기로 요청이 들어온다
+	@ResponseBody
+	public String theafstate(String deepresult){//딥러닝 판정되면 해당 세션 아이디 theaf 값 변경 매퍼 호출		
+		int m_no = Integer.valueOf(deepresult);		
+		mapper.theafinsert(m_no); //딥러닝 판정시 db에 sleep 저장하는 매퍼 호출
+		System.out.println("도난판정, 회원넘버 :"+m_no);		
 		return "";
 	}
 	
 	@RequestMapping("/wantsleepy")
 	@ResponseBody
 	public String wantsleepy(String memno){ //자바스크립트 딥러닝 판정 확인 메서드
-		System.out.println("wantsleepy 메서드 진입, 자바스크립트가 보내준 세션아이디:"+memno);
+		System.out.println("wantsleepy 졸음운전 확인 메서드 진입, 자바스크립트가 보내준 세션아이디:"+memno);
 		if(!memno.equals("")||memno.isEmpty()||memno==null) {
 			
 		int m_no=Integer.valueOf(memno);
@@ -73,6 +81,32 @@ public class FileController {
 		
 		String result2 = mapper.sleepyselect(m_no);
 		System.out.println("맵퍼 졸음변수 초기화 : "+result2);
+		}
+		return result;
+		}
+		else {
+			return "";
+		}
+			
+	}
+	
+	
+	
+	@RequestMapping("/wanttheaf")
+	@ResponseBody
+	public String wanttheaf(String memno){ //자바스크립트 딥러닝 판정 확인 메서드
+		System.out.println("wanttheaf 도난방지 확인 메서드 진입, 자바스크립트가 보내준 세션아이디:"+memno);
+		if(!memno.equals("")||memno.isEmpty()||memno==null) {
+			
+		int m_no=Integer.valueOf(memno);
+		
+		String result= mapper.theafselect(m_no);//맵퍼 검색, theaf든 no 든  result에 담는다
+		System.out.println("맵퍼 검색 결과 : "+result);
+		if (result.equals("theaf")){//만약 매퍼 검색 결과가 theaf이면
+		mapper.theafdelete(m_no); //db에 theaf대신 no라고 변경한다.
+		
+		String result2 = mapper.theafselect(m_no);
+		System.out.println("맵퍼 도난변수 초기화 : "+result2);
 		}
 		return result;
 		}

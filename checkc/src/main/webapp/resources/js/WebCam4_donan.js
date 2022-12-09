@@ -89,17 +89,16 @@ window.onload = async function () { //비동기 위해 async 와 await 사용, �
     	read_member()
     	gpsloc() 
         await sleep(1000) 
-    	/*
-    	wantsleepy()
+    	wanttheaf()
     	await sleep(1000)    	
-    	wantsleepy()
+    	wanttheaf()
     	await sleep(1000)    	
-    	wantsleepy()
+    	wanttheaf()
     	await sleep(1000)    	
-    	wantsleepy()
+    	wanttheaf()
     	await sleep(1000)    	
-    	wantsleepy()
-    	*/
+    	wanttheaf()
+    	
         stopRecording()
         await sleep(10)
         playRecording()
@@ -141,7 +140,7 @@ var newfilename = title+meberno+"_"+dateString+timeString;
     
     $.ajax({
         //url: "http://localhost:8085/controller/file/checkuploadvideo", //데이터 보낼  url 입력
-        url: "http://127.0.0.1:5000/theafupload", //데이터 보낼  url 입력
+        url: "http://127.0.0.1:5000/fileUpload_theaf", //데이터 보낼  url 입력
         type: "POST",
         contentType: false, // 이 옵션과 아래옵션 모두 false로 해놔야 전송 가능  false 로 선언 시 content-type 헤더가 multipart/form-data로 전송되게 함
         processData: false, // false로 선언 시 formData를 string으로 변환하지 않음
@@ -170,7 +169,7 @@ var newfilename = title+meberno+"_"+dateString+timeString;
 function gomp3page(){
 	
     	mp3state = "";
-    	window.location.replace("http://localhost:8085/controller/resources/html/alarm_play.html");
+    	window.location.replace("http://localhost:8085/controller/resources/html/alarm_play_theaf.html");
     
 }
 
@@ -233,13 +232,13 @@ function gpsloc() {
     }
 }
 
-function wantsleepy(){
+function wanttheaf(){
 $.ajax({
-    url: "http://localhost:8085/controller/file/wantsleepy?memno="+meberno,
+    url: "http://localhost:8085/controller/file/wanttheaf?memno="+meberno,
     success: function(data) {
     	 if (data != null) { //성공시 받아온 데이터가 있다면    		
     		 console.log("받은 데이터 : "+data)
-    		 if (data === "sleep"){
+    		 if (data === "theaf"){
     			 gomp3page()
     		 }
     	  else{

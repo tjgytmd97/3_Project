@@ -30,6 +30,10 @@ public class HomeController {
 	public void main() {
 		
 	}
+	@RequestMapping("/main2")
+	public void main2() {
+		
+	}
 	
 	@RequestMapping("/list.do")
 	public void list() {
