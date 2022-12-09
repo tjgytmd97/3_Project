@@ -21,13 +21,12 @@
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="resources/css/styles.css" rel="stylesheet" />
 <style>
-#preview {
+#preview{
 	transform: rotateY(180deg);
 	-webkit-transform: rotateY(180deg); /* Safari and Chrome */
 	-moz-transform: rotateY(180deg); /* Firefox */
 }
 </style>
-
 </head>
 <body>
 	<!-- Responsive navbar-->
@@ -68,12 +67,10 @@
 		</div>
 	</section>
 
-	<section class="py-5">
+	<section class="py-3">
 		<div class="container my-5"></div>
 	</section>
-	<!-- Footer-->
-	<%@include file="../../footer.jsp"%>
-
+	
 	<script type="text/javascript">
 		function logout() {
 			location.href = "${cpath}/memberLogout.do";

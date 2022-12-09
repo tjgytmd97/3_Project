@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:set var="cpath" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -61,9 +62,11 @@
 							</tbody>
 						</table>
 
+						<div class="d-grid gap-2 d-md-flex justify-content-center">
 						<button type="button" class="btn btn-secondary"
-							data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="float:right;">
-							알림 수정</button>
+							data-bs-toggle="modal" data-bs-target="#staticBackdrop" >
+							수정완료</button></div>
+							<div>
 
 						<!-- 수정완료 Modal -->
 						<div class="modal fade" id="staticBackdrop"
@@ -93,17 +96,17 @@
 	<!-- 기록목록 -->
 	<div class="row justify-content-center">
             <div class="d-grid gap-2 col-6 mx-auto">
-                <a href="list.html" class="btn btn-secondary disabled" tabindex="-1" role="button" aria-disabled="true">기록목록</a>
+                <a href="${cpath}/pagenext.do?nextPage=list" class="btn btn-secondary" role="button">
+                기록목록</a>
         </div>
-
+</div>
 	<!-- Content section-->
         <section class="py-5">
             <div class="container my-5">
                 
             </div>
         </section>
-        <!-- Footer-->
-        <%@include file="../../footer.jsp"%>
+        
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->

@@ -3071,6 +3071,7 @@ textarea.form-control-lg {
   color: #fff;
   background-color: #7f5feb;
   border-color: #6c757d;
+  opacity:inherit;
 }
 .btn-secondary:hover {
   color: #fff;
@@ -5575,6 +5576,7 @@ textarea.form-control-lg {
   border-bottom: 1px solid #dee2e6;
   border-top-left-radius: calc(0.3rem - 1px);
   border-top-right-radius: calc(0.3rem - 1px);
+  background-color:#7f5feb;
 }
 .modal-header .btn-close {
   padding: 0.5rem 0.5rem;
@@ -5590,6 +5592,7 @@ textarea.form-control-lg {
   position: relative;
   flex: 1 1 auto;
   padding: 1rem;
+  color: #000;
 }
 
 .modal-footer {
