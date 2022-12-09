@@ -94,6 +94,6 @@
 	<!-- Core theme JS-->
 	<script src="resources/js/jquery-3.6.1.min.js"></script>
 	<script src="resources/js/scripts.js"></script>
-	<script src="resources/js/WebCam2.js"></script>
+	<script src="resources/js/WebCam4_donan.js"></script>
 </body>
 </html>

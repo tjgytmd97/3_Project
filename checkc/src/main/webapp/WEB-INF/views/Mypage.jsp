@@ -24,6 +24,10 @@
 	<!-- Responsive navbar-->
 	<%@include file="../../header.jsp"%>
 	
+	
+	<!--자바스클비트에서 세션값 가져오기위한 소스  -->
+	<input type="hidden" value="${loginMember.m_no}" id="loginuser">
+	
 	<video autoplay muted loop id="bg-video">
 		<source src="resources/video/gfp-astro-timelapse.mp4" type="video/mp4">
 	</video>

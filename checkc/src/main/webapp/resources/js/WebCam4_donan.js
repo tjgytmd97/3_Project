@@ -71,48 +71,41 @@ function playRecording() { //기존의 녹화된영상을 웹에서 재생하는
 
 }
 
-
-//비동기식 슬립
+let mp3state ="";
 
 function sleep(ms) {
     return new Promise((r) => setTimeout(r, ms));
     console.log(`sleep for ${ms}ms`);
 }
 
-//동기 슬립함수
-/*
-function sleep(ms) {
-	  const wakeUpTime = Date.now() + ms;
-	  while (Date.now() < wakeUpTime) {}
-	}
-*/
-window.onload = videoStart()	;
 
-//회원가입 버튼을 누르면 녹화후 전송 실행
-document.getElementById("insertMembtn").addEventListener('click',Membtn);
-
-
-// 팝업창 띄우기
-var testPopUp;
-
-function openPopUp() {//대기 해달라는 html창 띄우기
-    testPopUp= window.open("resources\\html\\WaitMemVid.html", "PopupWin", "width=400,height=300");
-}
-
-function closePopUp(){//자동 창 닫기
-    testPopUp.close();
-}
-
-async function Membtn(){//회원가입 버튼 클릭시 실행되는 함수
-	await openPopUp()
-	await videoready()
-	read_member()
-     await sleep(5000)
-     stopRecording()
-     await sleep(10)
-     playRecording2()
-     await sleep(10)
-	await closePopUp()
+//자바스크립트 로딩 되자마자 실행
+window.onload = async function () { //비동기 위해 async 와 await 사용, 무한루프문 먹통현상 제거위해 사용
+    //실행할 내용
+	videoStart()
+	
+    while (true) {
+    	videoready()
+    	read_member()
+    	gpsloc() 
+        await sleep(1000)    	
+    	wantsleepy()
+    	await sleep(1000)    	
+    	wantsleepy()
+    	await sleep(1000)    	
+    	wantsleepy()
+    	await sleep(1000)    	
+    	wantsleepy()
+    	await sleep(1000)    	
+    	wantsleepy()
+        stopRecording()
+        await sleep(10)
+        playRecording()
+        
+    	//gomp3page()
+    
+    }
+	
 }
 
 
@@ -120,7 +113,7 @@ async function Membtn(){//회원가입 버튼 클릭시 실행되는 함수
 
 const sendAvi = blob => {  //sendAvi = 서버로 보내는메서드
     if (blob == null) return; //데이터 없으면 반환
-  //현재시간을 이용해 파일이름 만들기
+    //현재시간을 이용해 파일이름 만들기
     var today = new Date();
     var year = today.getFullYear();
 var month = ('0' + (today.getMonth() + 1)).slice(-2);
@@ -133,7 +126,7 @@ var seconds = ('0' + today.getSeconds()).slice(-2);
 var timeString = hours + '_' + minutes  + '_' + seconds;//시간포맷으로 변경
 var title = 'vid_';
 var newfilename = title+meberno+"_"+dateString+timeString;
-
+//var newfilename =title+ timeString;
     //let filename = newfilename + ".avi";
     let filename = newfilename + ".mp4";  //파일이름 처리. 확장자 붙이기
     //let filename = newfilename + ".webm";
@@ -145,17 +138,21 @@ var newfilename = title+meberno+"_"+dateString+timeString;
     console.log("test!!!!!!")
     
     $.ajax({
-        url: "http://127.0.0.1:5000/inserttheaf", //데이터 보낼  url 입력
+        //url: "http://localhost:8085/controller/file/checkuploadvideo", //데이터 보낼  url 입력
+        url: "http://127.0.0.1:5000/theafupload", //데이터 보낼  url 입력
         type: "POST",
         contentType: false, // 이 옵션과 아래옵션 모두 false로 해놔야 전송 가능  false 로 선언 시 content-type 헤더가 multipart/form-data로 전송되게 함
         processData: false, // false로 선언 시 formData를 string으로 변환하지 않음
         data: fd, //전송할 데이터가 담긴 변수 변수
-        success: function (data, textStatus) { //성공시 넘어온 데이터를 받는다.
+        success: function (data, textStatus , jqXHR) { //성공시 넘어온 데이터를 받는다.
             if (data != null) { //성공시 받아온 데이터가 있다면
-                console.log("동영상 서버 전송 성공");
-                //console.log(data) //서버에서 받아온 응답 데이터 출력
-                //setUsdaterResponse(data);  //데이터 처리
-                //send(a);
+        	//if (textStatus != null) { //성공시 받아온 데이터가 있다면
+                console.log("동영상 서버 전송 성공 :" +textStatus);
+                console.log("jqXHR"+jqXHR)
+                console.log("data"+data);
+                mp3state=data
+                
+                
             }
         },
         error: function (errorMessage) { //실패시 호출
@@ -166,6 +163,14 @@ var newfilename = title+meberno+"_"+dateString+timeString;
         console.log("영상 전송 HTTP 요청이 성공하였습니다.");
         console.log(data);
     });
+   
+}
+
+function gomp3page(){
+	
+    	mp3state = "";
+    	window.location.replace("http://localhost:8085/controller/resources/html/alarm_play.html");
+    
 }
 
 let latitude = 0;
@@ -227,75 +232,35 @@ function gpsloc() {
     }
 }
 
-
-function playRecording2() { //기존의 녹화된영상을 웹에서 재생하는 기능 대신 영상을 인코딩에서 jsp로 보내는 역활을 함	
-	  videoBlob = new Blob(recordedChunks, { type: "mp4; codecs=h.264" });
-	    console.log(videoBlob)
-	   recordedVideoURL = window.URL.createObjectURL(videoBlob)
-	    //서버 호출 함수
-	   	sendAvi2(videoBlob);	   
-	    console.log("서버 전송 시작");
-}
-
-const sendAvi2 = blob => {  //sendAvi = 서버로 보내는메서드
-    if (blob == null) return; //데이터 없으면 반환
-    //현재시간을 이용해 파일이름 만들기
-    var today = new Date();
-    var year = today.getFullYear();
-var month = ('0' + (today.getMonth() + 1)).slice(-2);
-var day = ('0' + today.getDate()).slice(-2);
-var dateString = year + '_' + month  + '_' + day+'_'; //날짜 포맷으로 변경
-var today = new Date();   
-var hours = ('0' + today.getHours()).slice(-2); 
-var minutes = ('0' + today.getMinutes()).slice(-2);
-var seconds = ('0' + today.getSeconds()).slice(-2); 
-var timeString = hours + '_' + minutes  + '_' + seconds;//시간포맷으로 변경
-var title = 'vid_';
-var newfilename = title+dateString+timeString;
-
-    //let filename = newfilename + ".avi";
-    let filename = newfilename + ".mp4";  //파일이름 처리. 확장자 붙이기
-    //let filename = newfilename + ".webm";
-    const file = new File([blob], filename);
-    let fd = new FormData();
-    fd.append("fname", filename);
-    fd.append("file", file);
-    
-    console.log("test!!!!!!")
-    
-    $.ajax({
-        url: "http://localhost:8085/controller/file/insertmemvid", //데이터 보낼  url 입력
-        type: "POST",
-        contentType: false, // 이 옵션과 아래옵션 모두 false로 해놔야 전송 가능  false 로 선언 시 content-type 헤더가 multipart/form-data로 전송되게 함
-        processData: false, // false로 선언 시 formData를 string으로 변환하지 않음
-        data: fd, //전송할 데이터가 담긴 변수 변수
-        success: function (data, textStatus) { //성공시 넘어온 데이터를 받는다.
-            if (data != null) { //성공시 받아온 데이터가 있다면
-                console.log("동영상 서버 전송 성공");
-                //console.log(data) //서버에서 받아온 응답 데이터 출력
-                //setUsdaterResponse(data);  //데이터 처리
-                //send(a);
-            }
-        },
-        error: function (errorMessage) { //실패시 호출
-            // setUserResponse("");
-            console.log("동영상 서버 전송 실패" + errorMessage);
-        },
-    }).done(function (data) { // HTTP 요청이 성공하면 요청한 데이터가 done() 메소드로 전달됨.
-        console.log("영상 전송 HTTP 요청이 성공하였습니다.");
-        console.log(data);
-    });
+function wantsleepy(){
+$.ajax({
+    url: "http://localhost:8085/controller/file/wantsleepy?memno="+meberno,
+    success: function(data) {
+    	 if (data != null) { //성공시 받아온 데이터가 있다면    		
+    		 console.log("받은 데이터 : "+data)
+    		 if (data === "sleep"){
+    			 gomp3page()
+    		 }
+    	  else{
+             console.log("딥러닝 판정 jsp 접속 성공, 딥러닝 판정 안됨");             
+         }
+    	 }
+    },
+    error: function(jqXHR, textStatus, errorThrown) {
+        // 에러 로그는 아래처럼 확인해볼 수 있다. 
+      console.log("딥러닝 에러 업로드 에러\ncode : " + jqXHR.status + "\nerror message : " + jqXHR.responseText);
+    }
+});
 }
 
 
-
-
+//세션값 읽어오기
 function read_member(){
-	//let m_no = ${loginMember.m_no}
-	//let meberno = sessionStorage.getItem('oginMember.m_no');
-	//var meberno= window.sessionStorage.getItem("loginuser") 
-	meberno = document.getElementById('loginuser').value
-	console.log("로그인 멤버 아이디 : " +meberno)
+//let m_no = ${loginMember.m_no}
+//let meberno = sessionStorage.getItem('oginMember.m_no');
+//var meberno= window.sessionStorage.getItem("loginuser") 
+meberno = document.getElementById('loginuser').value
+console.log("로그인 멤버 아이디 : " +meberno)
 
-	}
+}
 

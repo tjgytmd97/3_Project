@@ -47,12 +47,12 @@ public class FileController {
 		return "";
 	}
 	
-	@RequestMapping("/sleepystate")
+	@RequestMapping("/sleepystate") //딥러닝 결과 판정되면 여기로 요청이 들어온다
 	@ResponseBody
 	public String sleepystate(String deepresult){//딥러닝 판정되면 해당 세션 아이디 sleepy 값 변경 매퍼 호출
 		
 		int m_no = Integer.valueOf(deepresult);		
-		mapper.sleepyinsert(m_no);
+		mapper.sleepyinsert(m_no); //딥러닝 판정시 db에 sleep 저장하는 매퍼 호출
 		System.out.println("딥러닝 결과 졸음판정, insert:"+m_no);
 		
 		return "";
@@ -68,10 +68,12 @@ public class FileController {
 		
 		String result= mapper.sleepyselect(m_no);//맵퍼 검색, sleppy든 no 든  result에 담는다
 		System.out.println("맵퍼 검색 결과 : "+result);
-		mapper.sleepydelete(m_no);
+		if (result.equals("sleep")){//만약 매퍼 검색 결과가 sleepy이면
+		mapper.sleepydelete(m_no); //db에 sleepy대신 no라고 변경한다.
+		
 		String result2 = mapper.sleepyselect(m_no);
 		System.out.println("맵퍼 졸음변수 초기화 : "+result2);
-		
+		}
 		return result;
 		}
 		else {
