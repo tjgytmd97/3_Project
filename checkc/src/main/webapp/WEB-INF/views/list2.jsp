@@ -46,9 +46,9 @@
                             <tbody>
                                 <tr>
                                     <th scope="row">1</th>
-                                    <td>2022-11-25 10:28</td>
+                                    <td>2022-12-2 15:57</td>
                                     <td>
-                                        <a href="#" class="link-secondary">admin/영상6</a>
+                                        <a href="#" class="link-secondary">admin/영상10</a>
                                         <button type="button" class="btn btn-light" style="float: right">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                 fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
@@ -60,9 +60,9 @@
                                 </tr>
                                 <tr>
                                     <th scope="row">2</th>
-                                    <td>2022-11-29 15:57</td>
+                                    <td>2022-12-1 05:01</td>
                                     <td>
-                                        <a href="#" class="link-secondary">admin/영상7</a>
+                                        <a href="#" class="link-secondary">admin/영상9</a>
                                         <button type="button" class="btn btn-light" style="float: right">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                 fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
@@ -88,9 +88,9 @@
                                 </tr>
                                 <tr>
                                     <th scope="row">4</th>
-                                    <td>2022-12-1 05:01</td>
+                                    <td>2022-11-29 15:57</td>
                                     <td>
-                                        <a href="#" class="link-secondary">admin/영상9</a>
+                                        <a href="#" class="link-secondary">admin/영상7</a>
                                         <button type="button" class="btn btn-light" style="float: right">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                 fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
@@ -102,9 +102,9 @@
                                 </tr>
                                 <tr>
                                     <th scope="row">5</th>
-                                    <td>2022-12-2 15:57</td>
+                                    <td>2022-11-25 10:28</td>
                                     <td>
-                                        <a href="#" class="link-secondary">admin/영상10</a>
+                                        <a href="#" class="link-secondary">admin/영상6</a>
                                         <button type="button" class="btn btn-light" style="float: right">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                 fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">

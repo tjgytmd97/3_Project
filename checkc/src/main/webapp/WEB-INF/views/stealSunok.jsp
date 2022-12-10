@@ -40,14 +40,26 @@
                                 <tr>
                                     <th scope="col">2022-12-9 08:57</th>
                                 </tr>
+                            </thead>
+                            <tbody>
                                 <tr>
                                 	<td>
                                 	<div style="text-align : center;">
-                                	<img src="resources/img/선옥.jpg" width=300; height=300;>
+                                	<img src="resources/img/sunok.jpg" width=300; height=300;>
                                 	</div>
                                 	</td>
                                 </tr>
-                            </thead>
+                                <tr>
+                                	<td>
+                                	<div style="text-align : center;">
+                              		<video width="300" height="300" src="resources/img/sunok.mp4" controls="controls"></video>
+                                	</div>
+                                	</td>
+                                
+                                </tr>
+                            </tbody>
+                             
+                           
                         </table>
                     </div>
                 </div>
