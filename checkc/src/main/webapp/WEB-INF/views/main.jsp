@@ -68,7 +68,7 @@
 	</section>
 
 	<section class="py-3">
-		<div class="container my-5"></div>
+		<div class="container my-5 text-center" style="font-size:2em">졸음 CAM</div>
 	</section>
 	
 	<script type="text/javascript">
