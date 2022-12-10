@@ -51,5 +51,13 @@ public class HomeController {
 	public void list3() {
 		
 	}
+	
+	@RequestMapping("/stealSunok.do")
+	public void stealSunok() {
+		
+	}
+	
+	
+	
 }
 
